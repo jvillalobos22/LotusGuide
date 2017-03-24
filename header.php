@@ -4,14 +4,11 @@
 
 	<head>
 		<meta charset="utf-8">
-		
 		<!-- Force IE to use the latest rendering engine available -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
 		<!-- Mobile Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta class="foundation-mq">
-		
 		<!-- If Site Icon isn't set in customizer -->
 		<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) { ?>
 			<!-- Icons & Favicons -->
@@ -24,30 +21,36 @@
 			<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/assets/images/win8-tile-icon.png">
 	    	<meta name="theme-color" content="#121212">
 	    <?php } ?>
-
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-
 		<?php wp_head(); ?>
-
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
 		<!-- Drop Google Analytics here -->
 		<!-- end analytics -->
 
 	</head>
-	
-	<!-- Uncomment this line if using the Off-Canvas Menu --> 
-		
+
+	<!-- Uncomment this line if using the Off-Canvas Menu -->
+
 	<body <?php body_class(); ?>>
 
-		<div class="off-canvas-wrapper">
-							
+		<div class="off-canvas-wrapper dk_bodywrapper">
+
 			<?php get_template_part( 'parts/content', 'offcanvas' ); ?>
-			
+
 			<div class="off-canvas-content" data-off-canvas-content>
-				
+
 				<header class="header" role="banner">
-						
-					 <!-- This navs will be applied to the topbar, above all content 
+                    <div class="row dk_header_row">
+                        <img class="dk_logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-guide-logo.png" alt="Lotus Guide Logo">
+                        <div class="dk_headerphone">
+                            <a href="tel:+15308948433">530-894-8433</a> | <a href="tel:+15308948433">530-89-GUIDE</a>
+                        </div>
+                        <div class="dk_headersocial">
+                            Social Media Icons
+                        </div>
+                    </div>
+					<!-- This navs will be applied to the topbar, above all content
 						  To see additional nav styles, visit the /parts directory -->
-					 <?php get_template_part( 'parts/nav', 'offcanvas-topbar' ); ?>
-	 	
+					<?php get_template_part( 'parts/nav', 'offcanvas-topbar' ); ?>
+
 				</header> <!-- end .header -->

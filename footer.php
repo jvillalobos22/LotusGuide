@@ -12,6 +12,16 @@
 				</footer> <!-- end .footer -->
 			</div>  <!-- end .main-content -->
 		</div> <!-- end .off-canvas-wrapper -->
+		<script>
+			jQuery(document).ready(function($) {
+				$('.dk_homeslider').unslider({
+					autoplay: true,
+					delay: 6000,
+					nav: false,
+					arrows: false
+				});
+			});
+		</script>
 		<?php wp_footer(); ?>
 	</body>
 </html> <!-- end page -->

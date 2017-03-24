@@ -4,13 +4,16 @@ function site_scripts() {
 
     // Load What-Input files in footer
     wp_enqueue_script( 'what-input', get_template_directory_uri() . '/vendor/what-input/dist/what-input.min.js', array(), '', true );
-    
+
     // Adding Foundation scripts file in the footer
     wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/assets/js/foundation.js', array( 'jquery' ), '6.2.3', true );
-    
+
     // Adding scripts file in the footer
     wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );
-   
+
+    // Adding Unslider Scripts and Stylesheets
+    wp_enqueue_script( 'unslider-min', get_template_directory_uri() . '/assets/js/unslider-min.js', array( 'jquery' ), '', true );
+
     // Register main stylesheet
     wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/style.css', array(), '', 'all' );
 
