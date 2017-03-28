@@ -72,6 +72,14 @@ Template Name: Homepage Template
 						</div>
 						<div class="dk_home_adbanners">
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-banner-ad-1.jpg" alt="addalt">
+							<div class="dk_home_testimonial" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/homepage-testimonial-stock.jpg);">
+
+								<div class="dk_caption">
+									<h4>Readers Love the Lotus Guide</h4>
+									<p>&ldquo;Lotus Guide is a wonderful resource for the Northern California community for alternative health. Fun, uplifting and an all around feel good read. Dhara and Rahasya are also fantastic to work with for ads and marketing like minded business'. It's a win win! Thank you Lotus Guide for all the beautiful work you do. Thank you Lotus Guide for all the beautiful work you do.&ldquo;</p>
+									<p><strong>Jody McNicholas</strong></p>
+								</div>
+							</div>
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-banner-ad-2.jpg" alt="addalt">
 						</div>
 
@@ -82,7 +90,26 @@ Template Name: Homepage Template
 			</main> <!-- end #main -->
 			<aside class="large-4 medium-4 small-12 columns">
 				<div class="dk_sidebar">
-					<h3>Featured Business</h3>
+					<form role="search" method="get" class="search-form dk_searchbar" action="<?php echo home_url( '/' ); ?>">
+						<input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search Here', 'jointswp' ) ?>" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'jointswp' ) ?>" />
+						<input type="submit" class="search-submit button dk_searchsubmit" value="<?php echo esc_attr_x( '...', 'jointswp' ) ?>" />
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</form>
+					<h3 class="dk_heading">Featured Business</h3>
+					<a class="dk_adlink_container" href="#">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-sidebar-ad-1.jpg" alt="addalt">
+						<h4>Business Name Goes Here</h4>
+					</a>
+					<h3 class="dk_heading">Recent Issue</h3>
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/homepage-flipbook-placeholder.jpg" alt="addalt">
+					<h3 class="dk_heading">Newsletter</h3>
+					<p>Sign up to receive our newsletter right to your inbox! <a href="#">Get Started Now!</a></p>
+					<h3 class="dk_heading">Socialize</h3>
+					<p>Facebook buttons</p>
+					<h3 class="dk_heading">Upcoming Events</h3>
+					<p><strong>February 14, 2017</strong><br>Valentine's Dinner at The Elk's Lodge</p>
+					<p><strong>February 14, 2017</strong><br>Valentine's Dinner at The Elk's Lodge</p>
+					<a class="dk_btn" href="#">View the Calendar</a>
 				</div>
 			</aside>
 		</div> <!-- end #inner-content -->

@@ -136,6 +136,7 @@ h1 {
     text-transform: uppercase;
     display: block;
     border-bottom: 1px solid #e0e0e0;
+    color: #999;
     position: relative;
     padding-bottom: 0.5rem;
     &:before {
@@ -300,6 +301,66 @@ header.header {
         margin-bottom: 1rem;
     }
 }
+
+/*==============================================================================
+  	#Sidebar Styles
+==============================================================================*/
+.dk_sidebar {
+    h3 {
+        font-size: 1.325rem;
+        font-weight: 300;
+    }
+    .dk_heading {
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+    }
+    .dk_adlink_container {
+        img {
+            margin-bottom: 0.75rem;
+        }
+        h4 {
+            font-size: 1.125rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #999;
+        }
+    }
+    .dk_btn {
+        margin-top: 0.625rem;
+    }
+}
+.dk_searchbar {
+    position: relative;
+    margin-bottom: 2rem;
+
+    input[type="search"] {
+        border-color: #e0e0e0;
+    }
+    .dk_searchsubmit {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin-bottom: 0;
+        background-color: transparent;
+        z-index: 2;
+        color: transparent;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    .fa-search {
+        position: absolute;
+        right: 14px;
+        top: 12px;
+        font-size: 1rem;
+        color: #444;
+        z-index: 1;
+    }
+}
+
 /*==============================================================================
   	#Homepage
 ==============================================================================*/
@@ -336,6 +397,15 @@ header.header {
             padding: 2.5rem 1rem;
         }
     }
+
+    #main {
+        padding-right: 1.5rem;
+
+        .dk_maincontent {
+            padding-right: 4.375rem;
+            border-right: 1px solid #e0e0e0;
+        }
+    }
 }
 
 .dk_home_adbanners {
@@ -344,10 +414,55 @@ header.header {
     }
 }
 
+.dk_home_testimonial {
+    position: relative;
+    background-position: center;
+    padding: 1.5rem 0;
+    margin-bottom: 1.5rem;
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        width: 100%;
+        background-color: rgba(255,255,255,0.6);
+        z-index: 0;
+    }
+    .dk_caption {
+        h4 {
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        max-width: 88%;
+        margin: 0 auto;
+        display: block;
+    }
+}
 /*==============================================================================
   	#Footer
 ==============================================================================*/
+.dk_footer_inner {
+    margin-top: 1.5rem;
+    margin-bottom: 3.5rem;
+    background-color: #fff;
 
+    .dk_logo {
+        width: 180px;
+        float: left;
+        margin: 0.9375rem;
+    }
+
+    .copyright {
+        text-align: right;
+        margin-top: 49px;
+    }
+}
 /*==============================================================================
   	#Media Queries
 ==============================================================================*/

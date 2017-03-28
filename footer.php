@@ -1,12 +1,12 @@
-				<footer class="footer" role="contentinfo">
-					<div id="inner-footer" class="row">
-						<div class="large-12 medium-12 columns">
-							<nav role="navigation">
-	    						<?php joints_footer_links(); ?>
-	    					</nav>
-	    				</div>
-						<div class="large-12 medium-12 columns">
-							<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.</p>
+				<footer class="footer dk_footer" role="contentinfo">
+					<div id="inner-footer" class="row dk_footer_inner">
+
+						<!--<nav role="navigation">
+    						<?php //joints_footer_links(); ?>
+    					</nav>-->
+						<div class="large-12 columns">
+							<a href="#"><img class="dk_logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-guide-logo.png" alt="Lotus Guide Logo"></a>
+							<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All Rights Reserved. Site by <a href="https://www.dkwebdesign.com" rel="nofollow" target="_blank">Dk Web Design</a>.</p>
 						</div>
 					</div> <!-- end #inner-footer -->
 				</footer> <!-- end .footer -->
@@ -22,6 +22,7 @@
 				});
 			});
 		</script>
+		<script src="https://use.fontawesome.com/1b6c5f7bcd.js"></script>
 		<?php wp_footer(); ?>
 	</body>
 </html> <!-- end page -->
