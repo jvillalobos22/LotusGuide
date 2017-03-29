@@ -45,7 +45,7 @@ function custom_post_homepageslides() {
 			'capability_type' => 'post',
 			'hierarchical ' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
-			'supports' => array( 'title', 'editor', 'thumbnail', 'revisions', 'sticky')
+			'supports' => array( 'title', 'thumbnail', 'revisions', 'sticky')
 	 	) /* end of options */
 	); /* end of register post type */
 
@@ -113,3 +113,105 @@ register_taxonomy( 'custom_tag',
 	check out this fantastic tool:
 	https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress
 */
+
+
+/* Custom meta boxes for Homepage Slides */
+function add_slides_meta_box() {
+	add_meta_box(
+		'slides_meta_box', // $id
+		'Homepage Slide Fields', // $title
+		'show_slides_meta_box', // $callback
+		'homepage_slide', // $screen
+		'normal', // $context
+		'high' // $priority
+	);
+}
+add_action( 'add_meta_boxes', 'add_slides_meta_box' );
+
+function show_slides_meta_box() {
+	global $post;
+	$meta = get_post_meta( $post->ID, 'slides', true ); ?>
+	<div class="dk_meta_editor">
+		<input type="hidden" name="slides_meta_box_nonce" value="<?php echo wp_create_nonce( basename(__FILE__) ); ?>">
+
+		<!-- All fields will go here -->
+		<div>
+			<label for="slides[image]">Image Upload</label><br>
+			<input type="text" name="slides[image]" id="slides[image]" class="meta-image regular-text" value="<?php if ( isset ( $meta['image'] ) ) echo $meta['image']; ?>">
+			<input type="button" class="button image-upload" value="Browse">
+		</div>
+		<div>
+			<label for="slides[alt]">Image Alt Tag</label><br><small>Provide a brief description of the image. This is important for accesibility and SEO purposes.</small><br>
+			<input type="text" name="slides[alt]" id="slides[alt]" class="regular-text" value="<?php if ( isset ( $meta['alt'] ) ) echo $meta['alt']; ?>">
+		</div>
+		<?php if ( isset ( $meta['image'] ) ) { ?>
+		<div class="image-preview"><img src="<?php echo $meta['image']; ?>"></div>
+		<?php } else { ?>
+			<div class="image-preview"><p>Please add an image to the slide and click "update".</div>
+		<?php } ?>
+	</div>
+	<script>
+	jQuery(document).ready(function ($) {
+
+		// Instantiates the variable that holds the media library frame.
+		var meta_image_frame;
+		// Runs when the image button is clicked.
+		$('.image-upload').click(function (e) {
+			e.preventDefault();
+			var meta_image = $(this).parent().children('.meta-image');
+
+			// If the frame already exists, re-open it.
+			if (meta_image_frame) {
+				meta_image_frame.open();
+				return;
+			}
+			// Sets up the media library frame
+			meta_image_frame = wp.media.frames.meta_image_frame = wp.media({
+				title: meta_image.title,
+				button: {
+					text: meta_image.button
+				}
+			});
+			// Runs when an image is selected.
+			meta_image_frame.on('select', function () {
+				// Grabs the attachment selection and creates a JSON representation of the model.
+				var media_attachment = meta_image_frame.state().get('selection').first().toJSON();
+				// Sends the attachment URL to our custom image input field.
+				meta_image.val(media_attachment.url);
+			});
+			// Opens the media library frame.
+			meta_image_frame.open();
+		});
+	});
+	</script>
+	<?php
+}
+
+function save_slides_meta( $post_id ) {
+	// verify nonce
+	if ( !wp_verify_nonce( $_POST['slides_meta_box_nonce'], basename(__FILE__) ) ) {
+		return $post_id;
+	}
+	// check autosave
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return $post_id;
+	}
+	// check permissions
+	if ( 'page' === $_POST['homepage_slide'] ) {
+		if ( !current_user_can( 'edit_page', $post_id ) ) {
+			return $post_id;
+		} elseif ( !current_user_can( 'edit_post', $post_id ) ) {
+			return $post_id;
+		}
+	}
+
+	$old = get_post_meta( $post_id, 'slides', true );
+	$new = $_POST['slides'];
+
+	if ( $new && $new !== $old ) {
+		update_post_meta( $post_id, 'slides', $new );
+	} elseif ( '' === $new && $old ) {
+		delete_post_meta( $post_id, 'slides', $old );
+	}
+}
+add_action( 'save_post', 'save_slides_meta' );

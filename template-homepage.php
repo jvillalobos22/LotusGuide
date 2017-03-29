@@ -10,7 +10,7 @@ Template Name: Homepage Template
 		<?php
 
 				$args = array(
-					'post_type' => 'slide',
+					'post_type' => 'homepage_slide',
 					'orderby' => 'menu_order',
 					'posts_per_page' => -1
 				);
@@ -24,9 +24,10 @@ Template Name: Homepage Template
 				<ul>
 					<?php while ( $slides->have_posts() ) : $slides->the_post();
 						  $sliderImg = get_field('slide_image');
+						  $meta = get_post_meta( $post->ID, 'slides', true );
 					?>
 					<li class="dk_slide">
-						<img src="<?php echo $sliderImg['url']; ?>" alt="<?php echo $sliderImg['alt']; ?>">
+						<img src="<?php echo $meta['image']; ?>" alt="<?php echo $meta['alt']; ?>">
 					</li>
 					<?php endwhile; ?>
 				</ul>
