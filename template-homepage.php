@@ -71,7 +71,7 @@ Template Name: Homepage Template
 							</div>
 						</div>
 						<div class="dk_home_adbanners">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-banner-ad-1.jpg" alt="addalt">
+							<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-banner-ad-1.jpg" alt="addalt"></a>
 							<div class="dk_home_testimonial" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/homepage-testimonial-stock.jpg);">
 
 								<div class="dk_caption">
@@ -80,7 +80,7 @@ Template Name: Homepage Template
 									<p><strong>Jody McNicholas</strong></p>
 								</div>
 							</div>
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-banner-ad-2.jpg" alt="addalt">
+							<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-banner-ad-2.jpg" alt="addalt"></a>
 						</div>
 
 					</div> <!-- end dk_maincontent -->

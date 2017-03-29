@@ -43,7 +43,7 @@ function custom_post_homepageslides() {
 			'rewrite'	=> array( 'slug' => 'slide', 'with_front' => false ), /* you can specify its url slug */
 			'has_archive' => true, /* you can rename the slug here */
 			'capability_type' => 'post',
-			'hierarchical' => false,
+			'hierarchical ' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
 			'supports' => array( 'title', 'editor', 'thumbnail', 'revisions', 'sticky')
 	 	) /* end of options */
@@ -53,7 +53,6 @@ function custom_post_homepageslides() {
 	register_taxonomy_for_object_type('category', 'homepage_slide');
 	/* this adds your post tags to your custom post type */
 	register_taxonomy_for_object_type('post_tag', 'homepage_slide');
-
 }
 
 // adding the function to the Wordpress init
