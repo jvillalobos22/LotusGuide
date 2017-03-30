@@ -38,7 +38,14 @@
 			<?php get_template_part( 'parts/content', 'offcanvas' ); ?>
 
 			<div class="off-canvas-content" data-off-canvas-content>
+                <?php
+                global $post;
 
+                if(!empty($post)) {
+                    $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
+                }
+                echo $pageTemplate;
+                ?>
 				<header class="header" role="banner">
                     <div class="row dk_header_row">
                         <img class="dk_logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-guide-logo.png" alt="Lotus Guide Logo">

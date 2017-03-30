@@ -1,6 +1,7 @@
 .dk_meta_editor {
-    div {
-        margin-bottom: 1.5rem;
+    label {
+        margin-top: 1rem;
+        display: block;
     }
 
     .image-preview {
@@ -9,6 +10,44 @@
         img {
             width: 100%;
             max-width: 500px;
+        }
+    }
+
+    small {
+        line-height: 1.4;
+    }
+    fieldset {
+        border: 1px solid #e0e0e0;
+        padding: 0 10px 1rem 10px;
+
+        input, textarea {
+            width: 100%;
+        }
+
+        legend {
+            margin-left: 10px;
+            padding: 0 1rem;
+        }
+    }
+}
+
+.dk_twocolumns {
+    fieldset {
+        margin: 1rem 10px;
+    }
+    .column {
+        width: 50%;
+        display: inline-block;
+
+        &:first-child {
+            fieldset {
+                margin-left: 0;
+            }
+        }
+        &:last-child {
+            fieldset {
+                margin-right: 0;
+            }
         }
     }
 }

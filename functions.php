@@ -34,7 +34,11 @@ require_once(get_template_directory().'/assets/functions/editor-styles.php');
 // require_once(get_template_directory().'/assets/functions/related-posts.php');
 
 // Use this as a template for custom post types
-require_once(get_template_directory().'/assets/functions/custom-post-type.php');
+require_once(get_template_directory().'/assets/functions/homepage-slides.php');
+//require_once(get_template_directory().'/assets/functions/custom-post-type.php');
+
+// Custom Fields
+require_once(get_template_directory().'/assets/functions/homepage-fields.php');
 
 // Customize the WordPress login menu
 // require_once(get_template_directory().'/assets/functions/login.php');

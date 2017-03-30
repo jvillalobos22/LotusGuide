@@ -41,9 +41,10 @@ Template Name: Homepage Template
 
 				<?php
 					if (have_posts()) : while (have_posts()) : the_post();
-					$preHeading = get_field('homepage_title_prefix');
-					$postHeading = get_field('homepage_title_ending');
-					$pageSubheading = get_field('page_subheading');
+						$homeMeta = get_post_meta( $post->ID, 'homepage', true );
+						$preHeading = $homeMeta['homepage-title-prefix'];
+						$postHeading = $homeMeta['homepage-title-ending'];
+						$pageSubheading = $homeMeta['homepage-subheading'];
 					?>
 
 					<div class="dk_maincontent" <?php post_class(''); ?>>
