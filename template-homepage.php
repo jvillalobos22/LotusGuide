@@ -23,8 +23,8 @@ Template Name: Homepage Template
 			<div class="dk_homeslider">
 				<ul>
 					<?php while ( $slides->have_posts() ) : $slides->the_post();
-						  $sliderImg = get_field('slide_image');
-						  $meta = get_post_meta( $post->ID, 'slides', true );
+
+						$meta = get_post_meta( $post->ID, 'slides', true );
 					?>
 					<li class="dk_slide">
 						<img src="<?php echo $meta['image']; ?>" alt="<?php echo $meta['alt']; ?>">
@@ -49,7 +49,7 @@ Template Name: Homepage Template
 
 					<div class="dk_maincontent" <?php post_class(''); ?>>
 
-						<h1 class="page-title"><?php echo $preHeading; ?> <span><?php echo $postHeading; ?></span></h1>
+						<h1 class="page-title"><?php echo $homeMeta['super-cool-option']; ?> <span><?php echo $postHeading; ?></span></h1>
 						<h2 class="dk_subheading"><?php echo $pageSubheading; ?></h2>
 					    <?php the_content(); ?>
 						<div class="row dk_homecallouts">

@@ -136,6 +136,10 @@ function show_homepage_meta_box() {
             <input type="text" name="homepage[banner-ad-twoalt]" id="homepage[banner-ad-twoalt]" class="regular-text" value="<?php if ( isset ( $meta['banner-ad-twoalt'] ) ) echo $meta['banner-ad-twoalt']; ?>">
             <label for="homepage[banner-ad-two-link]">Advertisement Link</label>
             <input type="text" name="homepage[banner-ad-two-link]" id="homepage[banner-ad-two-link]" class="regular-text" value="<?php if ( isset ( $meta['banner-ad-two-link'] ) ) echo $meta['banner-ad-two-link']; ?>">
+
+
+            <label for="homepage[super-cool-option]">Super Cool Option</label>
+            <input type="text" name="homepage[super-cool-option]" id="homepage[super-cool-option]" class="regular-text" value="<?php if ( isset ( $meta['super-cool-option'] ) ) echo $meta['super-cool-option']; ?>">
         </fieldset>
 	</div>
 	<script>
