@@ -117,13 +117,15 @@ function show_homepage_meta_box() {
             <input type="text" name="homepage[banner-ad-one-link]" id="homepage[banner-ad-one-link]" class="regular-text" value="<?php if ( isset ( $meta['banner-ad-one-link'] ) ) echo $meta['banner-ad-one-link']; ?>">
         </fieldset>
         <!-- Testimonial -->
-        <strong>Testimonial</strong>
-        <label for="homepage[testimonial-heading]">Testimonial Heading</label>
-        <input type="text" name="homepage[testimonial-heading]" id="homepage[testimonial-heading]" class="regular-text" value="<?php if ( isset ( $meta['testimonial-heading'] ) ) echo $meta['testimonial-heading']; ?>">
-        <label for="homepage[testimonial-quote]">Testimonial Quote (Don't add quotation marks)</label>
-        <textarea name="homepage[testimonial-quote]" id="homepage[testimonial-quote]" rows="5" cols="30"><?php if ( isset ( $meta['testimonial-quote'] ) ) echo $meta['testimonial-quote']; ?></textarea>
-        <label for="homepage[testimonial-name]">Name of Reviewer</label>
-        <input type="text" name="homepage[testimonial-name]" id="homepage[testimonial-name]" class="regular-text" value="<?php if ( isset ( $meta['testimonial-name'] ) ) echo $meta['testimonial-name']; ?>">
+        <div class="dk_sectionspace">
+            <strong>Testimonial</strong>
+            <label for="homepage[testimonial-heading]">Testimonial Heading</label>
+            <input type="text" name="homepage[testimonial-heading]" id="homepage[testimonial-heading]" class="regular-text" value="<?php if ( isset ( $meta['testimonial-heading'] ) ) echo $meta['testimonial-heading']; ?>">
+            <label for="homepage[testimonial-quote]">Testimonial Quote (Don't add quotation marks)</label>
+            <textarea name="homepage[testimonial-quote]" id="homepage[testimonial-quote]" rows="3" cols="70" style="width: 100%; max-width: 450px;"><?php if ( isset ( $meta['testimonial-quote'] ) ) echo $meta['testimonial-quote']; ?></textarea>
+            <label for="homepage[testimonial-name]">Name of Reviewer</label>
+            <input type="text" name="homepage[testimonial-name]" id="homepage[testimonial-name]" class="regular-text" value="<?php if ( isset ( $meta['testimonial-name'] ) ) echo $meta['testimonial-name']; ?>">
+        </div>
         <fieldset>
             <legend>Banner Ad 2</legend>
             <label for="homepage[banner-ad-two]">Image Upload</label>
@@ -136,10 +138,6 @@ function show_homepage_meta_box() {
             <input type="text" name="homepage[banner-ad-twoalt]" id="homepage[banner-ad-twoalt]" class="regular-text" value="<?php if ( isset ( $meta['banner-ad-twoalt'] ) ) echo $meta['banner-ad-twoalt']; ?>">
             <label for="homepage[banner-ad-two-link]">Advertisement Link</label>
             <input type="text" name="homepage[banner-ad-two-link]" id="homepage[banner-ad-two-link]" class="regular-text" value="<?php if ( isset ( $meta['banner-ad-two-link'] ) ) echo $meta['banner-ad-two-link']; ?>">
-
-
-            <label for="homepage[super-cool-option]">Super Cool Option</label>
-            <input type="text" name="homepage[super-cool-option]" id="homepage[super-cool-option]" class="regular-text" value="<?php if ( isset ( $meta['super-cool-option'] ) ) echo $meta['super-cool-option']; ?>">
         </fieldset>
 	</div>
 	<script>

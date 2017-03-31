@@ -1,6 +1,10 @@
+.dk_sectionspace {
+    margin: 2rem 0;
+}
+
 .dk_meta_editor {
     label {
-        margin-top: 1rem;
+        margin-top: 1.5rem;
         display: block;
     }
 
@@ -19,7 +23,8 @@
     fieldset {
         border: 1px solid #e0e0e0;
         padding: 0 10px 1rem 10px;
-
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
         input, textarea {
             width: 100%;
         }
@@ -27,6 +32,7 @@
         legend {
             margin-left: 10px;
             padding: 0 1rem;
+            font-weight: bold;
         }
     }
 }

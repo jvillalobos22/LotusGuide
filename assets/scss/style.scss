@@ -281,10 +281,10 @@ header.header {
 
 .dk_maincontent {
     h3 {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
     }
     h4 {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
     }
 }
 
@@ -293,12 +293,15 @@ header.header {
 ==============================================================================*/
 .dk_callout {
     .dk_heading {
-        margin-bottom: 1.25rem;
+        margin-bottom: 1.125rem;
     }
     img {
         border: 1px solid #d5d5d5;
         padding: 8px;
         margin-bottom: 1rem;
+    }
+    h4 {
+        margin-bottom: 1.375rem;
     }
 }
 

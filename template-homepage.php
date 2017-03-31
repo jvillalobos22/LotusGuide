@@ -45,44 +45,71 @@ Template Name: Homepage Template
 						$preHeading = $homeMeta['homepage-title-prefix'];
 						$postHeading = $homeMeta['homepage-title-ending'];
 						$pageSubheading = $homeMeta['homepage-subheading'];
+
+						$calloutLeftHeading = $homeMeta['callout-left-heading'];
+						$calloutLeftImg = $homeMeta['callout-left-image'];
+						$calloutLeftAlt = $homeMeta['callout-left-imagealt'];
+						$calloutLeftSubheading = $homeMeta['callout-left-subheading'];
+						$calloutLeftParagraph = $homeMeta['callout-left-paragraph'];
+						$calloutLeftBtnText = $homeMeta['callout-left-btntext'];
+						$calloutLeftBtnLink = $homeMeta['callout-left-btnlink'];
+
+						$calloutRightHeading = $homeMeta['callout-right-heading'];
+						$calloutRightImg = $homeMeta['callout-right-image'];
+						$calloutRightAlt = $homeMeta['callout-right-imagealt'];
+						$calloutRightSubheading = $homeMeta['callout-right-subheading'];
+						$calloutRightParagraph = $homeMeta['callout-right-paragraph'];
+						$calloutRightBtnText = $homeMeta['callout-right-btntext'];
+						$calloutRightBtnLink = $homeMeta['callout-right-btnlink'];
+
+						$bannerAdOne = $homeMeta['banner-ad-one'];
+						$bannerAdOneAlt = $homeMeta['banner-ad-onealt'];
+						$bannerAdOneLink = $homeMeta['banner-ad-one-link'];
+
+						$testimonialHeading = $homeMeta['testimonial-heading'];
+						$testimonialQuote = $homeMeta['testimonial-quote'];
+						$testimonialName = $homeMeta['testimonial-name'];
+
+						$bannerAdTwo = $homeMeta['banner-ad-two'];
+						$bannerAdTwoAlt = $homeMeta['banner-ad-twoalt'];
+						$bannerAdTwoLink = $homeMeta['banner-ad-two-link'];
 					?>
 
 					<div class="dk_maincontent" <?php post_class(''); ?>>
 
-						<h1 class="page-title"><?php echo $homeMeta['super-cool-option']; ?> <span><?php echo $postHeading; ?></span></h1>
+						<h1 class="page-title"><?php echo $preHeading; ?> <span><?php echo $postHeading; ?></span></h1>
 						<h2 class="dk_subheading"><?php echo $pageSubheading; ?></h2>
 					    <?php the_content(); ?>
 						<div class="row dk_homecallouts">
 							<div class="large-6 medium-6 small-12 columns">
 								<div class="dk_callout">
-									<h3 class="dk_heading">Business Directory</h3>
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/homepage-callout-left.jpg" alt="addalt">
-									<h4>Connecting People Through Healthy Living</h4>
-									<p>Vivamus vitae dolor sed tortor tincidunt aliquam sed quis tortor. Fusce neque elit vestibulum non dolor nec. Vivamus vitae dolor sed tortor tincidunt aliquam sed quis tortor. Fusce neque elit vestibulum non dolor nec.</p>
-									<a class="dk_btn" href="#">Visit the Directory</a>
+									<h3 class="dk_heading"><?php echo $calloutLeftHeading; ?></h3>
+									<img src="<?php echo $calloutLeftImg; ?>" alt="<?php echo $calloutLeftAlt; ?>">
+									<h4><?php echo $calloutLeftSubheading; ?></h4>
+									<p><?php echo $calloutLeftParagraph; ?></p>
+									<a class="dk_btn" href="<?php echo $calloutLeftBtnLink; ?>"><?php echo $calloutLeftBtnText; ?></a>
 								</div>
 							</div>
 							<div class="large-6 medium-6 small-12 columns">
 								<div class="dk_callout">
-									<h3 class="dk_heading">Advertise With the Lotus Guide</h3>
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/homepage-callout-left.jpg" alt="addalt">
-									<h4>Our magazine is seen by xxx,xxx people!</h4>
-									<p>Vivamus vitae dolor sed tortor tincidunt aliquam sed quis tortor. Fusce neque elit vestibulum non dolor nec. Vivamus vitae dolor sed tortor tincidunt aliquam sed quis tortor. Fusce neque elit vestibulum non dolor nec.</p>
-									<a class="dk_btn" href="#">Get the Details</a>
+									<h3 class="dk_heading"><?php echo $calloutRightHeading; ?></h3>
+									<img src="<?php echo $calloutRightImg; ?>" alt="<?php echo $calloutRightAlt; ?>">
+									<h4><?php echo $calloutRightSubheading; ?></h4>
+									<p><?php echo $calloutRightParagraph; ?></p>
+									<a class="dk_btn" href="<?php echo $calloutRightBtnLink; ?>"><?php echo $calloutRightBtnText; ?></a>
 								</div>
 							</div>
 						</div>
 						<div class="dk_home_adbanners">
-							<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-banner-ad-1.jpg" alt="addalt"></a>
+							<a href="<?php echo $bannerAdOneLink; ?>" target="_blank"><img src="<?php echo $bannerAdOne; ?>" alt="<?php echo $bannerAdOneAlt; ?>"></a>
 							<div class="dk_home_testimonial" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/homepage-testimonial-stock.jpg);">
-
 								<div class="dk_caption">
-									<h4>Readers Love the Lotus Guide</h4>
-									<p>&ldquo;Lotus Guide is a wonderful resource for the Northern California community for alternative health. Fun, uplifting and an all around feel good read. Dhara and Rahasya are also fantastic to work with for ads and marketing like minded business'. It's a win win! Thank you Lotus Guide for all the beautiful work you do. Thank you Lotus Guide for all the beautiful work you do.&ldquo;</p>
-									<p><strong>Jody McNicholas</strong></p>
+									<h4><?php echo $testimonialHeading; ?></h4>
+									<p>&ldquo;<?php echo $testimonialQuote; ?>&ldquo;</p>
+									<p><strong><?php echo $testimonialName; ?></strong></p>
 								</div>
 							</div>
-							<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-banner-ad-2.jpg" alt="addalt"></a>
+							<a href="<?php echo $bannerAdTwoLink; ?>" target="_blank"><img src="<?php echo $bannerAdTwo; ?>" alt="<?php echo $bannerAdTwoAlt; ?>"></a>
 						</div>
 
 					</div> <!-- end dk_maincontent -->
