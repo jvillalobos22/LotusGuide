@@ -22,7 +22,7 @@ function add_secpage_meta_box() {
     if(!empty($post)) {
         $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
 
-        if($pageTemplate == 'template-secondary.php' ) {
+        if($pageTemplate == 'template-secondary.php' || $pageTemplate == 'template-secondary-fullwidth.php') {
             add_meta_box(
         		'secpage_meta_box', // $id
         		'Secondary Page Template Fields', // $title
@@ -43,6 +43,17 @@ function show_secpage_meta_box() {
 		<input type="hidden" name="secpage_meta_box_nonce" value="<?php echo wp_create_nonce( basename(__FILE__) ); ?>">
 
 		<!-- All fields will go here -->
+        <fieldset>
+            <legend>Banner Image</legend>
+            <label for="secpage[banner-image]">Image Upload</label>
+            <input type="text" name="secpage[banner-image]" id="secpage[banner-image]" class="meta-image regular-text" value="<?php if ( isset ( $meta['banner-image'] ) ) echo $meta['banner-image']; ?>">
+            <input type="button" class="button image-upload" value="Browse">
+            <?php if ( isset ( $meta['banner-image'] ) ) { ?>
+            <div class="image-preview"><img src="<?php echo $meta['banner-image']; ?>"></div>
+            <?php } ?>
+            <label for="secpage[banner-image-alt]">Image Alt Tag</label><small>Provide a brief description of the image. This is important for accesibility and SEO purposes.</small>
+            <input type="text" name="secpage[banner-image-alt]" id="secpage[bbanner-image-alt]" class="regular-text" value="<?php if ( isset ( $meta['banner-image-alt'] ) ) echo $meta['banner-image-alt']; ?>">
+        </fieldset>
         <div class="dk_twocolumns">
             <div class="column">
                 <label for="secpage[secpage-title-prefix]">Secondary Page Title Prefix</label><small>First part of the headline that is black.</small>

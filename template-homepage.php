@@ -79,7 +79,9 @@ Template Name: Homepage Template
 
 						<h1 class="page-title"><?php echo $preHeading; ?> <span><?php echo $postHeading; ?></span></h1>
 						<?php if($pageSubheading != '') { ?><h2 class="dk_subheading"><?php echo $pageSubheading; ?></h2><?php } ?>
-					    <?php the_content(); ?>
+						<div class="dk_content_block">
+					    	<?php the_content(); ?>
+						</div>
 						<div class="row dk_homecallouts">
 							<div class="large-6 medium-6 small-12 columns">
 								<div class="dk_callout">

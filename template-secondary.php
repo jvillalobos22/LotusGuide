@@ -18,13 +18,34 @@ Template Name: Secondary Page Template
 						$preHeading = $secPageMeta['secpage-title-prefix'];
 						$postHeading = $secPageMeta['secpage-title-ending'];
 						$pageSubheading = $secPageMeta['secpage-subheading'];
+
+						$bannerImg = $secPageMeta['banner-image'];
+						$bannerAlt = $secPageMeta['banner-image-alt'];
 					?>
 
 					<div class="dk_maincontent" <?php post_class(''); ?>>
-						<img class="dk_topimg" src="<?php echo get_template_directory_uri(); ?>/assets/images/secondary-header-placeholder-940x300.jpg" alt="addalt">
+						<?php if($bannerImg != '') { ?>
+							<img class="dk_topimg" src="<?php echo $bannerImg; ?>" alt="<?php echo $bannerAlt; ?>">
+						<?php } ?>
 						<h1 class="page-title"><?php echo $preHeading; ?> <span><?php echo $postHeading; ?></span></h1>
 						<?php if($pageSubheading != '') { ?><h2 class="dk_subheading"><?php echo $pageSubheading; ?></h2><?php } ?>
-					    <?php the_content(); ?>
+						<div class="dk_content_block">
+					    	<?php the_content(); ?>
+						</div>
+
+						<?php
+					        if( is_page( array( 'advertise-with-us' ) ) ) {
+								wp_nav_menu(array(
+						           'container' => false, // Remove nav container
+								   'before' => '<i class="fa fa-play" aria-hidden="true"></i>',
+								   'menu_class' => 'dk_bullets', // Adding custom nav class
+						           'menu_class' => 'dk_bullets', // Adding custom nav class
+						           'theme_location' => 'advertise-menu', // Where it's located in the theme
+						           'depth' => 5, // Limit the depth of the nav
+						       ));
+					        }
+						?>
+
 					</div> <!-- end dk_maincontent -->
 
 				<?php endwhile; endif; ?>
@@ -38,6 +59,10 @@ Template Name: Secondary Page Template
 						<input type="submit" class="search-submit button dk_searchsubmit" value="<?php echo esc_attr_x( '...', 'jointswp' ) ?>" />
 						<i class="fa fa-search" aria-hidden="true"></i>
 					</form>
+					<!-- About Module -->
+					<h3 class="dk_heading">About the Lotus Guide</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate turpis eget finibus dictum. Sed non erat quis ex semper iaculis eu eu lectus.</p>
+					<a class="dk_btn" href="#">Learn More</a>
 					<!-- Advertise With Us Module -->
 					<h3 class="dk_heading">Advertise With Us</h3>
 					<p>Build your business success with printed media, email, video and online advertising designed for your target audience!</p>

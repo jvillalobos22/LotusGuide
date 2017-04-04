@@ -3,7 +3,8 @@
 register_nav_menus(
 	array(
 		'main-nav' => __( 'The Main Menu', 'jointswp' ),   // Main nav in header
-		'footer-links' => __( 'Footer Links', 'jointswp' ) // Secondary nav in footer
+		'footer-links' => __( 'Footer Links', 'jointswp' ), // Secondary nav in footer
+		'advertise-menu' => __( 'Advertise Menu', 'jointswp' )
 	)
 );
 
@@ -18,7 +19,7 @@ function joints_top_nav() {
         'fallback_cb' => false,                         // Fallback function (see below)
         'walker' => new Topbar_Menu_Walker()
     ));
-} 
+}
 
 // Big thanks to Brett Mason (https://github.com/brettsmason) for the awesome walker
 class Topbar_Menu_Walker extends Walker_Nav_Menu {
@@ -39,7 +40,7 @@ function joints_off_canvas_nav() {
         'fallback_cb' => false,                         // Fallback function (see below)
         'walker' => new Off_Canvas_Menu_Walker()
     ));
-} 
+}
 
 class Off_Canvas_Menu_Walker extends Walker_Nav_Menu {
     function start_lvl(&$output, $depth = 0, $args = Array() ) {
