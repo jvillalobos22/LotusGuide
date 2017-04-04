@@ -150,6 +150,23 @@ h1 {
     }
 }
 
+.dk_homepage, .dk_secondarypage {
+    &#content {
+        #inner-content {
+            padding: 2.5rem 1rem;
+        }
+    }
+
+    #main {
+        padding-right: 1.5rem;
+
+        .dk_maincontent {
+            padding-right: 4.375rem;
+            border-right: 1px solid #e0e0e0;
+        }
+    }
+}
+
 /*==============================================================================
   	#Button Styles
 ==============================================================================*/
@@ -394,22 +411,6 @@ header.header {
     }
 }
 
-.dk_homepage {
-    &#content {
-        #inner-content {
-            padding: 2.5rem 1rem;
-        }
-    }
-
-    #main {
-        padding-right: 1.5rem;
-
-        .dk_maincontent {
-            padding-right: 4.375rem;
-            border-right: 1px solid #e0e0e0;
-        }
-    }
-}
 
 .dk_home_adbanners {
     img {

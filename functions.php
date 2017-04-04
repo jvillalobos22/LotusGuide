@@ -39,6 +39,7 @@ require_once(get_template_directory().'/assets/functions/homepage-slides.php');
 
 // Custom Fields
 require_once(get_template_directory().'/assets/functions/homepage-fields.php');
+require_once(get_template_directory().'/assets/functions/secondarypage-fields.php');
 
 // Customize the WordPress login menu
 // require_once(get_template_directory().'/assets/functions/login.php');
