@@ -237,21 +237,45 @@ header.header {
     }
 }
 
+.dk_nav .dropdown.menu.medium-horizontal > li.is-dropdown-submenu-parent > a::after {
+    border-color: $mainPink;
+    margin-top: auto;
+    border-left-width: 0;
+    border-bottom-width: 6px;
+    content: "";
+    position: absolute;
+    background-color: $mainPink;
+    top: 0;
+    bottom: 50%;
+    right: -10px !important;
+    width: 50px;
+    z-index: -1;
+    -webkit-transform: skew(40deg);
+    -moz-transform: skew(40deg);
+    -ms-transform: skew(40deg);
+    transform: skew(-320deg);
+}
+
 .dk_nav {
     a {
         color: #fff;
         text-transform: uppercase;
     }
 
-    .menu {
+    .dk_desktopnav > .menu {
         li {
             padding: 0.325rem 0.5rem;
             font-size: 0.925rem;
         }
-        .active {
+        .submenu {
+            .active {
+                background-color: #df679b;
+            }
+        }
+        > .active {
             background-color: #df679b;
 
-            a {
+            > a {
                 position: relative;
                 z-index: 1;
 
@@ -310,6 +334,9 @@ header.header {
     }
     h4 {
         font-size: 1.125rem;
+    }
+    .dk_btn {
+        margin-right: 1rem;
     }
 }
 
@@ -507,6 +534,25 @@ header.header {
 .dk_printed_ads_table {
 
 }
+
+/*==============================================================================
+  	#Ad Testimonials Page Template
+==============================================================================*/
+.dk_adtestimonials {
+    .dk_testimonial {
+        margin-bottom: 2.125rem;
+        blockquote {
+            color: #222;
+            border-left: none;
+            margin: 0;
+            padding: 0;
+        }
+        cite {
+            text-align: right;
+        }
+    }
+}
+
 /*==============================================================================
   	#Footer
 ==============================================================================*/

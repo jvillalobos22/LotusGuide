@@ -35,6 +35,7 @@ require_once(get_template_directory().'/assets/functions/editor-styles.php');
 
 // Use this as a template for custom post types
 require_once(get_template_directory().'/assets/functions/homepage-slides.php');
+require_once(get_template_directory().'/assets/functions/ad-testimonials.php');
 //require_once(get_template_directory().'/assets/functions/custom-post-type.php');
 
 // Custom Fields

@@ -22,7 +22,7 @@ function add_secpage_meta_box() {
     if(!empty($post)) {
         $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
 
-        if($pageTemplate == 'template-secondary.php' || $pageTemplate == 'template-secondary-fullwidth.php') {
+        if($pageTemplate == 'template-secondary.php' || $pageTemplate == 'template-secondary-fullwidth.php' || $pageTemplate == 'template-ad-testimonials.php') {
             add_meta_box(
         		'secpage_meta_box', // $id
         		'Secondary Page Template Fields', // $title
@@ -38,11 +38,16 @@ add_action( 'add_meta_boxes', 'add_secpage_meta_box' );
 
 function show_secpage_meta_box() {
 	global $post;
-	$meta = get_post_meta( $post->ID, 'secpage', true ); ?>
+	$meta = get_post_meta( $post->ID, 'secpage', true );
+    $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);?>
 	<div class="dk_meta_editor">
 		<input type="hidden" name="secpage_meta_box_nonce" value="<?php echo wp_create_nonce( basename(__FILE__) ); ?>">
 
 		<!-- All fields will go here -->
+        <?php if($pageTemplate == 'template-ad-testimonials.php') { ?>
+            <h4><strong>Important:</strong> To add testimonials to this page, create testimonials in the section under "Ad Testimonials" on the left of your screen. From there, you can add or delete any number of testimonials.</h4>
+        <?php } ?>
+
         <fieldset>
             <legend>Banner Image</legend>
             <label for="secpage[banner-image]">Image Upload</label>
