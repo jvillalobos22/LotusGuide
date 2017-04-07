@@ -23,7 +23,6 @@ require_once(get_template_directory().'/assets/functions/page-navi.php');
 // Adds support for multiple languages
 require_once(get_template_directory().'/assets/translation/translation.php');
 
-
 // Remove 4.2 Emoji Support
 // require_once(get_template_directory().'/assets/functions/disable-emoji.php');
 
@@ -36,6 +35,7 @@ require_once(get_template_directory().'/assets/functions/editor-styles.php');
 // Use this as a template for custom post types
 require_once(get_template_directory().'/assets/functions/homepage-slides.php');
 require_once(get_template_directory().'/assets/functions/ad-testimonials.php');
+require_once(get_template_directory().'/assets/functions/business-listings.php');
 //require_once(get_template_directory().'/assets/functions/custom-post-type.php');
 
 // Custom Fields
