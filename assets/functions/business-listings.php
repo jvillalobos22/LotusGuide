@@ -48,13 +48,110 @@ function custom_post_business_listings() {
 	); /* end of register post type */
 
 	/* this adds your post categories to your custom post type */
-	register_taxonomy_for_object_type('category', 'business_listing');
+	register_taxonomy_for_object_type('listing-category', 'business_listing');
 	/* this adds your post tags to your custom post type */
 	register_taxonomy_for_object_type('post_tag', 'business_listing');
 }
 
 // adding the function to the Wordpress init
 add_action( 'init', 'custom_post_business_listings');
+
+// now let's add custom categories (these act like categories)
+register_taxonomy( 'listing-category',
+	array('business_listing'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+	array('hierarchical' => true,     /* if this is true, it acts like categories */
+		'labels' => array(
+			'name' => __( 'Listing Categories', 'jointswp' ), /* name of the custom taxonomy */
+			'singular_name' => __( 'Listing Category', 'jointswp' ), /* single taxonomy name */
+			'search_items' =>  __( 'Search Listing Categories', 'jointswp' ), /* search title for taxomony */
+			'all_items' => __( 'All Listing Categories', 'jointswp' ), /* all title for taxonomies */
+			'parent_item' => __( 'Parent Listing Category', 'jointswp' ), /* parent title for taxonomy */
+			'parent_item_colon' => __( 'Parent Listing Category:', 'jointswp' ), /* parent taxonomy title */
+			'edit_item' => __( 'Edit Listing Category', 'jointswp' ), /* edit custom taxonomy title */
+			'update_item' => __( 'Update Listing Category', 'jointswp' ), /* update title for taxonomy */
+			'add_new_item' => __( 'Add New Listing Category', 'jointswp' ), /* add new title for taxonomy */
+			'new_item_name' => __( 'New Listing Category Name', 'jointswp' ) /* name title for taxonomy */
+		),
+		'show_admin_column' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite' => array( 'slug' => 'listing-category', 'hierarchical' => true )
+	)
+);
+
+/* Add fields to listing category taxonomy */
+add_action( 'listing-category_add_form_fields', 'add_listing_category_fields', 10, 2 );
+function add_listing_category_fields($taxonomy) {
+    ?>
+	<div class="form-field term-group">
+		<label for="listingFields[imageurl]"><?php _e( 'Image URL', 'jointswp' ); ?></label>
+        <input type="text" id="listingFields[imageurl]" name="listingFields[imageurl]" />
+		<label for="listingFields[imagealt]"><?php _e( 'Image Alt', 'jointswp' ); ?></label>
+		<input type="text" id="listingFields[imagealt]" name="listingFields[imagealt]" />
+		<label for="listingFields[desceditor]"><?php _e( 'Image Alt', 'jointswp' ); ?></label>
+		<textarea type="text" id="listingFields[desceditor]" name="listingFields[desceditor]" /></textarea>
+    </div>
+	<?php
+}
+
+/* Save fields to listing category taxonomy */
+add_action( 'created_listing-category', 'save_listing_category_meta', 10, 2 );
+function save_listing_category_meta( $term_id, $tt_id ){
+    if( isset( $_POST['listingFields'] ) && '' !== $_POST['listingFields'] ){
+        $group = $_POST['listingFields'];
+        add_term_meta( $term_id, 'listingFields', $group );
+    }
+}
+
+/* Edit fields to listing category taxonomy */
+add_action( 'listing-category_edit_form_fields', 'edit_listing_category_field', 10, 2 );
+function edit_listing_category_field( $term, $taxonomy ){
+    // get current group
+    $listingAry = get_term_meta( $term->term_id, 'listingFields' );
+	$listingFields = $listingAry[0];
+	echo '<pre>';
+	print_r( $listingFields );
+	echo '</pre>';
+    ?>
+	<tr class="form-field term-group-wrap">
+		<th scope="row"><label for="listingFields[imageurl]"><?php _e( 'Image URL', 'jointswp' ); ?></label></th>
+		<td>
+        	<input type="text" id="listingFields[imageurl]" name="listingFields[imageurl]" value="<?php if ( isset ( $listingFields['imageurl'] ) ) echo $listingFields['imageurl']; ?>"/>
+		</td>
+	</tr>
+	<tr class="form-field term-group-wrap">
+		<th scope="row"><label for="listingFields[imagealt]"><?php _e( 'Image Alt', 'jointswp' ); ?></label></th>
+		<td>
+        	<input type="text" id="listingFields[imagealt]" name="listingFields[imagealt]" value="<?php if ( isset ( $listingFields['imagealt'] ) ) echo $listingFields['imagealt']; ?>"/>
+		</td>
+	</tr>
+	<tr class="form-field term-group-wrap">
+		<th scope="row"><label for="listingFields[desceditor]"><?php _e( 'Image Alt', 'jointswp' ); ?></label></th>
+		<td>
+        	<textarea rows="8" cols="70" type="text" id="listingFields[desceditor]" name="listingFields[desceditor]" /><?php if ( isset ( $listingFields['desceditor'] ) ) echo $listingFields['desceditor']; ?></textarea>
+		</td>
+	</tr>
+	<?php
+}
+/* Update edited fields to listing category taxonomy */
+add_action( 'edited_listing-category', 'update_listing_category', 10, 2 );
+function update_listing_category( $term_id, $tt_id ){
+
+    if( isset( $_POST['listingFields'] ) && '' !== $_POST['listingFields'] ){
+
+		$t_id = $term_id;
+		$term_meta = get_option( "taxonomy_$t_id" );
+		$cat_keys = array_keys( $_POST['listingFields'] );
+		foreach ( $cat_keys as $key ) {
+			if ( isset ( $_POST['listingFields'][$key] ) ) {
+				$term_meta[$key] = $_POST['listingFields'][$key];
+			}
+		}
+        //$group = $_POST['listingFields'];
+        update_term_meta( $term_id, 'listingFields', $term_meta );
+    }
+}
+
 
 /*
 for more information on taxonomies, go here:

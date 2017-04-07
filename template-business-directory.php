@@ -1,10 +1,14 @@
 <?php
 /*
-    Business Listings Category
+Template Name: Business Directory
 */
 ?>
 
-<?php get_header(); ?>
+<?php
+$customURL = get_site_url().'/listing-category/';
+
+get_header();
+?>
 
 	<div id="content" class="dk_secondarypage">
 
@@ -15,33 +19,33 @@
                 <?php
 
                     $args = array(
-                        'hide_empty' => 0,
+                        'hide_empty' => 0, // set to 1 before launch
                         'orderby' => 'name',
                         'order' => 'ASC',
-                        'parent' => '7',
+                        'parent' => 0,
                         'hierarchical' => true,
-                        'taxonomy' => 'category'
+                        'taxonomy' => 'listing-category'
                     );
                     $categories = get_categories($args);
                     foreach($categories as $category) {
                         echo
-                            '<a href="'.$category->slug.'">
+                            '<a href="'.$customURL.$category->slug.'">
                                 '.$category->name.'
-                            </a><br>';
+                            </a><br><p>'.$customURL.$category->slug.'</p>';
                         //echo '<p>Id = '.$category->cat_ID.'</p>'; // uncomment to see cat ids
 
                         $subargs = array(
-                            'hide_empty' => 1,
+                            'hide_empty' => 0, // set to 1 before launch
                             'orderby' => 'name',
                             'order' => 'ASC',
                             'parent' => $category->cat_ID,
                             'hierarchical' => true,
-                            'taxonomy' => 'category'
+                            'taxonomy' => 'listing-category'
                         );
                         $subCategories = get_categories($subargs);
                         foreach($subCategories as $sub) {
                             echo
-                                '<a style="margin-left: 2rem;" href="'.$sub->slug.'">
+                                '<a style="margin-left: 2rem;" href="'.$customURL.$sub->slug.'">
                                     '.$sub->name.'
                                 </a><br>';
                         }
