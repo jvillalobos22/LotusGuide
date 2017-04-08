@@ -20,7 +20,7 @@
     small {
         line-height: 1.4;
     }
-    fieldset {
+    fieldset, .dk_twocolumns {
         border: 1px solid #e0e0e0;
         padding: 0 10px 1rem 10px;
         margin-top: 1.5rem;
@@ -44,6 +44,7 @@
     .column {
         width: 50%;
         display: inline-block;
+        vertical-align: top;
 
         &:first-child {
             fieldset {
@@ -55,5 +56,6 @@
                 margin-right: 0;
             }
         }
+        
     }
 }

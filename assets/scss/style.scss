@@ -167,7 +167,7 @@ h1 {
     }
 }
 
-.dk_secondarypage_fullwidth {
+.dk_secondarypage_fullwidth, .dk_archive {
     &#content {
         #inner-content {
             padding: 2.5rem 1rem;
@@ -567,6 +567,13 @@ header.header {
         text-transform: uppercase;
         font-weight: bold;
         color: $mainPink;
+    }
+}
+
+.dk_archive {
+    .dk_maincontent {
+        padding-right: 4.375rem;
+        border-right: 1px solid #e0e0e0;
     }
 }
 

@@ -43,7 +43,7 @@ function custom_post_business_listings() {
 			'capability_type' => 'post',
 			'hierarchical ' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
-			'supports' => array( 'title', 'editor', 'thumbnail', 'revisions')
+			'supports' => array( 'title', 'thumbnail', 'revisions')
 	 	) /* end of options */
 	); /* end of register post type */
 
@@ -109,9 +109,9 @@ function edit_listing_category_field( $term, $taxonomy ){
     // get current group
     $listingAry = get_term_meta( $term->term_id, 'listingFields' );
 	$listingFields = $listingAry[0];
-	echo '<pre>';
+	/*echo '<pre>';
 	print_r( $listingFields );
-	echo '</pre>';
+	echo '</pre>';*/
     ?>
 	<tr class="form-field term-group-wrap">
 		<th scope="row"><label for="listingFields[imageurl]"><?php _e( 'Image URL', 'jointswp' ); ?></label></th>
@@ -126,7 +126,7 @@ function edit_listing_category_field( $term, $taxonomy ){
 		</td>
 	</tr>
 	<tr class="form-field term-group-wrap">
-		<th scope="row"><label for="listingFields[desceditor]"><?php _e( 'Image Alt', 'jointswp' ); ?></label></th>
+		<th scope="row"><label for="listingFields[desceditor]"><?php _e( 'Listing Category Description', 'jointswp' ); ?></label></th>
 		<td>
         	<textarea rows="8" cols="70" type="text" id="listingFields[desceditor]" name="listingFields[desceditor]" /><?php if ( isset ( $listingFields['desceditor'] ) ) echo $listingFields['desceditor']; ?></textarea>
 		</td>
@@ -164,7 +164,7 @@ http://codex.wordpress.org/Function_Reference/register_taxonomy
 	https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress
 */
 
-/* Custom meta boxes for Homepage Slides */
+/* Custom meta boxes for Business Listings */
 function add_business_listings_meta_box() {
 	add_meta_box(
 		'business_listings_meta_box', // $id
@@ -184,6 +184,54 @@ function show_business_listings_meta_box() {
 		<input type="hidden" name="business_listings_meta_box_nonce" value="<?php echo wp_create_nonce( basename(__FILE__) ); ?>">
 
 		<!-- All fields will go here -->
+		<div class="dk_twocolumns">
+            <div class="column">
+                <fieldset>
+                    <legend>Business Details</legend>
+					<label for="business_listings[address]">Business Address<br><small><em>Ex: 123 Hemsworth Ln, Chico, CA 95928</em></small></label>
+					<input type="text" name="business_listings[address]" id="business_listings[address]" class="regular-text" value="<?php if ( isset ( $meta['address'] ) ) echo $meta['address']; ?>">
+
+					<label for="business_listings[phone]">Phone Number<br><small><em>Ex: (530) 555-5555</em></small></label>
+					<input type="phone" name="business_listings[phone]" id="business_listings[phone]" class="regular-text" value="<?php if ( isset ( $meta['phone'] ) ) echo $meta['phone']; ?>">
+
+					<label for="business_listings[website]">Website<br><small>Important: Do not add <code>http://</code><br><em>Ex: www.coolwebsite.com</em></small></label>
+					<input type="text" name="business_listings[website]" id="business_listings[website]" class="regular-text" value="<?php if ( isset ( $meta['website'] ) ) echo $meta['website']; ?>">
+
+					<label for="business_listings[email]">Email</label>
+					<input type="email" name="business_listings[email]" id="business_listings[email]" class="regular-text" value="<?php if ( isset ( $meta['email'] ) ) echo $meta['email']; ?>">
+
+					<label for="business_listings[businessdescription]">Business Description</label>
+					<textarea name="business_listings[businessdescription]" id="business_listings[businessdescription]" rows="5" cols="30"><?php if ( isset ( $meta['businessdescription'] ) ) echo $meta['businessdescription']; ?></textarea>
+				</fieldset>
+			</div><!--
+			--><div class="column">
+                <fieldset>
+					<legend>Business Image / Social Media</legend>
+					<label for="business_listings[listingimg]">Image Upload</label>
+					<input type="text" name="business_listings[listingimg]" id="business_listings[listingimg]" class="meta-image regular-text" value="<?php if ( isset ( $meta['listingimg'] ) ) echo $meta['listingimg']; ?>">
+        			<input type="button" class="button image-upload" value="Browse">
+                    <?php if ( isset ( $meta['listingimg'] ) ) { ?>
+            		<div class="image-preview"><img src="<?php echo $meta['listingimg']; ?>"></div>
+            		<?php } ?>
+                    <label for="business_listings[listingimgalt]">Image Alt Tag</label><small>Provide a brief description of the image. This is important for accesibility and SEO purposes.</small>
+        			<input type="text" name="business_listings[listingimgalt]" id="business_listings[listingimgalt]" class="regular-text" value="<?php if ( isset ( $meta['listingimgalt'] ) ) echo $meta['listingimgalt']; ?>">
+
+					<label for="business_listings[facebook]">Facebook Link</label>
+					<input type="text" name="business_listings[facebook]" id="business_listings[facebook]" class="regular-text" value="<?php if ( isset ( $meta['facebook'] ) ) echo $meta['facebook']; ?>">
+
+					<label for="business_listings[googleplus]">Google Plus Link</label>
+					<input type="text" name="business_listings[googleplus]" id="business_listings[googleplus]" class="regular-text" value="<?php if ( isset ( $meta['googleplus'] ) ) echo $meta['googleplus']; ?>">
+
+					<label for="business_listings[yelp]">Yelp Link</label>
+					<input type="text" name="business_listings[yelp]" id="business_listings[yelp]" class="regular-text" value="<?php if ( isset ( $meta['yelp'] ) ) echo $meta['yelp']; ?>">
+
+					<label for="business_listings[twitter]">Twitter Link</label>
+					<input type="text" name="business_listings[twitter]" id="business_listings[twitter]" class="regular-text" value="<?php if ( isset ( $meta['twitter'] ) ) echo $meta['twitter']; ?>">
+
+					<label for="business_listings[linkedin]">Linkedin Link</label>
+					<input type="text" name="business_listings[linkedin]" id="business_listings[linkedin]" class="regular-text" value="<?php if ( isset ( $meta['linkedin'] ) ) echo $meta['linkedin']; ?>">
+				</fieldset>
+			</div>
 
 	</div>
 	<script>
