@@ -8,6 +8,7 @@
 				<div class="dk_maincontent">
 
 				<?php if ( is_tax( 'listing-category' ) ) {
+					// If we are showing the loop for listing categories
 					get_template_part( 'parts/loop', 'listing-category');
 				} else { ?>
 					<header>

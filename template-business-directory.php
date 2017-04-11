@@ -10,12 +10,12 @@ $customURL = get_site_url().'/listing-category/';
 get_header();
 ?>
 
-	<div id="content" class="dk_secondarypage">
+	<div id="content" class="dk_secondarypage dk_businessdirectory">
 
 		<div id="inner-content" class="row">
 
 		    <main id="main" class="large-8 medium-8 small-12 columns" role="main">
-
+				<div class="dk_directory">
                 <?php
 
                     $args = array(
@@ -27,14 +27,11 @@ get_header();
                         'taxonomy' => 'listing-category'
                     );
                     $categories = get_categories($args);
+					$catCount = count($categories);
+					echo '<code>$catCount = '.$catCount.'</code><br>';
+					echo '<ul class="accordion" data-accordion data-allow-all-closed="true">';
                     foreach($categories as $category) {
-                        echo
-                            '<a href="'.$customURL.$category->slug.'">
-                                '.$category->name.'
-                            </a><br><p>'.$customURL.$category->slug.'</p>';
-                        //echo '<p>Id = '.$category->cat_ID.'</p>'; // uncomment to see cat ids
-
-                        $subargs = array(
+						$subargs = array(
                             'hide_empty' => 0, // set to 1 before launch
                             'orderby' => 'name',
                             'order' => 'ASC',
@@ -42,28 +39,33 @@ get_header();
                             'hierarchical' => true,
                             'taxonomy' => 'listing-category'
                         );
+						//echo '<br><p>'.$customURL.$category->slug.'</p>'; // uncomment to see cat url
+						//echo '<p>Id = '.$category->cat_ID.'</p>'; // uncomment to see cat ids
                         $subCategories = get_categories($subargs);
-                        foreach($subCategories as $sub) {
-                            echo
-                                '<a style="margin-left: 2rem;" href="'.$customURL.$sub->slug.'">
-                                    '.$sub->name.'
-                                </a><br>';
-                        }
-                        /*
-                        $the_query = new WP_Query(array(
-                            'post_type' => 'business_listing',
-                            'posts_per_page' => 100,
-                            'category_name' => $category->slug
-                        ));
-                        while ( $the_query->have_posts() ) :
-                        $the_query->the_post();
-                        echo '<h5>';
-                            the_title();
-                        echo '</h5>';
-                    endwhile;*/
-                    }
-                ?>
+						if($subCategories) {// Has Subcategories
+							echo
+								'<li class="accordion-item" data-accordion-item><a href="#" class="accordion-title">'.$category->name.'</a>';
+								echo '<div class="accordion-content" data-tab-content>';
+								echo '<a href="'.$customURL.$category->slug.'">
+									<strong>All '.$category->name.' Listings</strong></a>';
+								foreach($subCategories as $sub) {
+		                            echo
+		                                '<a style="margin-left: 2rem;" href="'.$customURL.$sub->slug.'">
+		                                    '.$sub->name.'
+		                                </a><br>';
+		                        }
+								echo '</div></li>';
 
+						} else {// No Subcategories
+							echo
+								'<li><a href="'.$customURL.$category->slug.'">
+									'.$category->name.'
+								</a></li>';
+						}
+                    }
+					echo '</ul>';
+                ?>
+				</div>
 			</main> <!-- end #main -->
 			<aside class="large-4 medium-4 small-12 columns">
 				<div class="dk_sidebar">

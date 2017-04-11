@@ -88,8 +88,8 @@ function add_listing_category_fields($taxonomy) {
         <input type="text" id="listingFields[imageurl]" name="listingFields[imageurl]" />
 		<label for="listingFields[imagealt]"><?php _e( 'Image Alt', 'jointswp' ); ?></label>
 		<input type="text" id="listingFields[imagealt]" name="listingFields[imagealt]" />
-		<label for="listingFields[desceditor]"><?php _e( 'Image Alt', 'jointswp' ); ?></label>
-		<textarea type="text" id="listingFields[desceditor]" name="listingFields[desceditor]" /></textarea>
+		<label for="listingFields[desceditor]"><?php _e( 'Listing Category Description', 'jointswp' ); ?></label>
+		<textarea type="text" id="listingFields[desceditor]" name="listingFields[desceditor]" rows="10" /></textarea>
     </div>
 	<?php
 }
@@ -188,20 +188,25 @@ function show_business_listings_meta_box() {
             <div class="column">
                 <fieldset>
                     <legend>Business Details</legend>
+
+					<label for="business_listings[featured]">Featured Business?
+						<input type="checkbox" name="business_listings[featured]" value="true" <?php if ( isset ($meta['featured']) && $meta['featured'] === 'true' ) echo 'checked'; ?>>
+					</label>
+
 					<label for="business_listings[address]">Business Address<br><small><em>Ex: 123 Hemsworth Ln, Chico, CA 95928</em></small></label>
 					<input type="text" name="business_listings[address]" id="business_listings[address]" class="regular-text" value="<?php if ( isset ( $meta['address'] ) ) echo $meta['address']; ?>">
 
 					<label for="business_listings[phone]">Phone Number<br><small><em>Ex: (530) 555-5555</em></small></label>
 					<input type="phone" name="business_listings[phone]" id="business_listings[phone]" class="regular-text" value="<?php if ( isset ( $meta['phone'] ) ) echo $meta['phone']; ?>">
 
-					<label for="business_listings[website]">Website<br><small>Important: Do not add <code>http://</code><br><em>Ex: www.coolwebsite.com</em></small></label>
+					<label for="business_listings[website]">Website<br><small>Important: Make sure to add <code>http://</code><br><em>Ex: http://www.coolwebsite.com</em></small></label>
 					<input type="text" name="business_listings[website]" id="business_listings[website]" class="regular-text" value="<?php if ( isset ( $meta['website'] ) ) echo $meta['website']; ?>">
 
 					<label for="business_listings[email]">Email</label>
 					<input type="email" name="business_listings[email]" id="business_listings[email]" class="regular-text" value="<?php if ( isset ( $meta['email'] ) ) echo $meta['email']; ?>">
 
-					<label for="business_listings[businessdescription]">Business Description</label>
-					<textarea name="business_listings[businessdescription]" id="business_listings[businessdescription]" rows="5" cols="30"><?php if ( isset ( $meta['businessdescription'] ) ) echo $meta['businessdescription']; ?></textarea>
+					<label for="business_listings[businessdescription]">Business Description<br><small>Max 300 Characters</small></label>
+					<textarea name="business_listings[businessdescription]" id="business_listings[businessdescription]" rows="5" cols="30" maxlength="300"><?php if ( isset ( $meta['businessdescription'] ) ) echo $meta['businessdescription']; ?></textarea>
 				</fieldset>
 			</div><!--
 			--><div class="column">
