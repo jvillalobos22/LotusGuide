@@ -560,9 +560,39 @@ header.header {
 /*==============================================================================
   	#Business Directory Template
 ==============================================================================*/
+.dk_businessdirectory {
+    #main {
+        .dk_maincontent {
+            padding-right: 1.875rem;
+            border-right: 1px solid #e0e0e0;
+        }
+    }
+}
 .dk_directory {
     a {
         display: block;
+    }
+    li, li.accordion-item {
+        a {
+            padding: 0.5rem;
+            line-height: 1.6;
+            &:hover {
+                background-color: $mainTeal;
+                color: #fff;
+            }
+        }
+        a.dk_subcat {
+            padding-left: 1.5rem;
+        }
+    }
+    li.accordion-item.is-active {
+        border: 1px solid #efefef;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+
+        a.accordion-title {
+            border-bottom: 1px solid #efefef;
+        }
     }
 }
 
@@ -570,6 +600,10 @@ header.header {
   	#Business Listing Category Archive Template
 ==============================================================================*/
 .dk_listingcat {
+    .dk_listingcat_description {
+        margin-top: 1rem;
+        margin-bottom: 1.25rem;
+    }
     .dk_listingcat_img {
         float: right;
         max-width: 350px;

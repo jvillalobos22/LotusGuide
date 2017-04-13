@@ -3,9 +3,9 @@
     /*echo '<pre>';
     print_r( $obj );
     echo '</pre>';*/
-    echo '<code>';
+    /*echo '<code>';
     print_r( $obj->slug );
-    echo '</code>';
+    echo '</code>';*/
 
     $listingCatAry = get_term_meta( $obj->term_id, 'listingFields' );
     $listingCatFields = $listingCatAry[0];
@@ -13,9 +13,39 @@
     $listingCatImg = $listingCatFields['imageurl'];
     $listingCatAlt = $listingCatFields['imagealt'];
     $listingCatDesc = $listingCatFields['desceditor'];
+
+    $titleArray = str_word_count($obj->name, 1);
+    $preTitle = '';
+    $postTitle = '';
+    $numOfWords = count($titleArray);
+
+    if($numOfWords > 1) {
+        $n = 1;
+        foreach($titleArray as $subTitle) {
+            if($n == $numOfWords) {
+                // last word
+                $postTitle = $subTitle;
+            } else {
+                // not last word
+                if($subTitle == 's') {
+                    $subTitle = '\'s';
+                }
+                $preTitle .= $subTitle;
+                if($titleArray[$n] != 's'){
+                    $preTitle .= ' ';
+                }
+
+            }
+            $n = $n + 1;
+        }
+    } else {
+        // Title is only one word
+        $postTitle = $obj->name;
+    }
+
 ?>
 <div class="dk_listingcat">
-    <h2><?php echo $obj->name ?></h2>
+    <h1><?php echo $preTitle; ?><span><?php echo $postTitle; ?></h1>
     <div class="dk_listingcat_description">
         <img class="dk_listingcat_img" src="<?php echo $listingCatImg; ?>" alt="<?php echo $listingCatAlt; ?>">
         <?php echo $listingCatDesc ?>
