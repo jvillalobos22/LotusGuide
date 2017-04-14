@@ -213,6 +213,70 @@ h1 {
 header.header {
     background-color: #fff;
 }
+
+.dk_headersocial {
+    a {
+        width: 40px;
+        height: 40px;
+        margin-right: 0.5rem;
+        display: inline-block;
+        text-align: center;
+        //background-color: $mainPink;
+        i {
+            font-size: 1.325rem;
+            //color: #fff;
+
+            display: block;
+            padding-top: 8px;
+        }
+        &.dk_facebook {
+            border: 2px solid $facebook;
+            color: $facebook;
+
+            &:hover {
+                background-color: $facebook;
+                color: #fff;
+            }
+        }
+        &.dk_twitter {
+            border: 2px solid $twitter;
+            color: $twitter;
+
+            &:hover {
+                background-color: $twitter;
+                color: #fff;
+            }
+        }
+        &.dk_youtube {
+            border: 2px solid $youtube;
+            color: $youtube;
+
+            &:hover {
+                background-color: $youtube;
+                color: #fff;
+            }
+        }
+        &.dk_googleplus {
+            border: 2px solid $googleplus;
+            color: $googleplus;
+
+            &:hover {
+                background-color: $googleplus;
+                color: #fff;
+            }
+        }
+        &.dk_yelp {
+            border: 2px solid $yelp;
+            color: $yelp;
+
+            &:hover {
+                background-color: $yelp;
+                color: #fff;
+            }
+        }
+    }
+}
+
 .dk_header_row {
     position: relative;
     padding-top: 1.25rem;
@@ -741,6 +805,55 @@ header.header {
         padding-left: 1rem;
     }
 }
+/*==============================================================================
+  	#Blog Index Template
+==============================================================================*/
+.dk_blog {
+    #main {
+        .dk_maincontent {
+            padding-right: 1.875rem;
+            border-right: 1px solid #e0e0e0;
+        }
+    }
+}
+
+.dk_blog {
+    article {
+        h2 {
+            font-size: 1.625rem;
+        }
+    }
+
+    .dk_blognav {
+        a {
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border: 1px solid $mainTeal;
+            &:hover {
+                background-color: $mainTeal;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.dk_blogexcerpt {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid #efefef;
+    .dk_excerptimg {
+        float: right;
+
+        img {
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .dk_mobile {
+            display: none;
+        }
+    }
+}
+
 
 /*==============================================================================
   	#Footer
@@ -766,11 +879,50 @@ header.header {
 /*==============================================================================
   	#Media Queries
 ==============================================================================*/
+@media screen and (max-width: 1614px) {
+    .dk_header_row {
+        .dk_headerphone {
+            right: 1rem;
+        }
+        .dk_headersocial {
+            left: 1rem;
+        }
+    }
+}
 @media screen and (max-width: 1099px) {
     .dk_desktopnav {
         display: none;
     }
     .dk_offcanvas_toggle {
         display: block;
+    }
+}
+
+@media screen and (max-width: 639px) {
+    .dk_blog {
+        #main {
+            .dk_maincontent {
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+                margin-bottom: 2.5rem;
+                padding-bottom: 1.5rem;
+            }
+        }
+    }
+
+    .dk_blogexcerpt {
+        .dk_excerptimg {
+            float: none;
+            img {
+                margin-left: 0;
+            }
+            .dk_desktop {
+                display: none;
+            }
+            .dk_mobile {
+                display: block;
+            }
+        }
     }
 }

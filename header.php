@@ -44,7 +44,7 @@
                 if(!empty($post)) {
                     $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
                 }
-                echo $pageTemplate;
+                //echo $pageTemplate;
                 ?>
 				<header class="header" role="banner">
                     <div class="row dk_header_row">
@@ -53,7 +53,21 @@
                             <a href="tel:+15308948433">530-894-8433</a> | <a href="tel:+15308948433">530-89-GUIDE</a>
                         </div>
                         <div class="dk_headersocial">
-                            Social Media Icons
+                            <a class="dk_facebook" href="#" target="_blank">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a class="dk_youtube" href="#" target="_blank">
+                                <i class="fa fa-youtube" aria-hidden="true"></i>
+                            </a>
+                            <a class="dk_twitter" href="#" target="_blank">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a class="dk_googleplus" href="#" target="_blank">
+                                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                            </a>
+                            <a class="dk_yelp" href="#" target="_blank">
+                                <i class="fa fa-yelp" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
 					<!-- This navs will be applied to the topbar, above all content
