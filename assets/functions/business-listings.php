@@ -237,7 +237,7 @@ function show_business_listings_meta_box() {
 					<input type="text" name="business_listings[linkedin]" id="business_listings[linkedin]" class="regular-text" value="<?php if ( isset ( $meta['linkedin'] ) ) echo $meta['linkedin']; ?>">
 				</fieldset>
 			</div>
-
+		</div>
 	</div>
 	<script>
 	jQuery(document).ready(function ($) {

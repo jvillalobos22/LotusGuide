@@ -36,6 +36,7 @@ require_once(get_template_directory().'/assets/functions/editor-styles.php');
 require_once(get_template_directory().'/assets/functions/homepage-slides.php');
 require_once(get_template_directory().'/assets/functions/ad-testimonials.php');
 require_once(get_template_directory().'/assets/functions/business-listings.php');
+require_once(get_template_directory().'/assets/functions/pickup-locations.php');
 //require_once(get_template_directory().'/assets/functions/custom-post-type.php');
 
 // Custom Fields
