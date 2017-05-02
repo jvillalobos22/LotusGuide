@@ -81,6 +81,7 @@ CSS file.
 	#Global Styles
     #Button Styles
   	#Header/Nav
+    #Off Canvas Nav
     #Content Area
 	#Homepage
     #Footer
@@ -380,8 +381,59 @@ header.header {
     }
 }
 
+/*==============================================================================
+  	#Off Canvas Nav
+==============================================================================*/
 .dk_offcanvas_toggle {
     display: none;
+    font-weight: bold;
+    a i.fa {
+        vertical-align: -1px;
+        font-size: 1.475rem;
+    }
+}
+
+.off-canvas {
+    .close-button {
+        color: $mainTeal;
+        font-weight: bold;
+
+        &:hover {
+            color: darken($mainTeal, 12%);
+        }
+    }
+    ul.menu {
+        margin-top: 2.5rem;
+
+        a {
+            &:hover {
+                background-color: $mainTeal;
+                color: #fff;
+            }
+        }
+
+        li.active {
+            a {
+                color: $mainTeal;
+                font-weight: bold;
+            }
+            &:hover {
+                a {
+                    color: #fff;
+                }
+            }
+        }
+    }
+    ul.menu.submenu {
+        margin-top: 0;
+
+        a {
+            padding-left: 2.25rem;
+        }
+    }
+    .is-accordion-submenu-parent > a:hover::after {
+        color: #fff;
+    }
 }
 /*==============================================================================
   	#Content Area
@@ -405,6 +457,12 @@ header.header {
     }
     .dk_btn {
         margin-right: 1rem;
+    }
+    img.alignleft {
+        float: left;
+        margin-right: 1.125rem;
+        margin-bottom: 1rem;
+        max-width: 40%;
     }
 }
 
@@ -853,7 +911,20 @@ header.header {
         }
     }
 }
+/*==============================================================================
+  	#Blog Article page - single.php, parts/loop-single.php
+==============================================================================*/
+.dk_post {
+    .dk_featuredimg {
+        max-width: 50%;
+        float: left;
+        margin-right: 1.125rem;
+        margin-bottom: 1rem;
+    }
+    .dk_postcontent {
 
+    }
+}
 
 /*==============================================================================
   	#Footer
@@ -898,7 +969,58 @@ header.header {
     }
 }
 
+@media screen and (max-width: 869px) {
+    .dk_header_row {
+        .dk_logo {
+            position: absolute;
+            left: 15px;
+        }
+        .dk_header_contact {
+            display: block;
+            width: 100%;
+            padding: 35px 0;
+            padding-right: 15px;
+        }
+        .dk_headersocial, .dk_headerphone {
+            position: static;
+            text-align: right;
+            margin-bottom: 1.25rem;
+            .dk_yelp {
+                margin-right: 0;
+            }
+        }
+    }
+}
+@media screen and (max-width: 769px) {
+    .dk_post {
+        .dk_featuredimg {
+            max-width: 100%;
+            float: none;
+            margin-right: 0;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
 @media screen and (max-width: 639px) {
+    .dk_header_row {
+        .dk_logo {
+            position: static;
+            left: initial;
+        }
+        .dk_header_contact {
+            padding: 0;
+        }
+        .dk_headersocial, .dk_headerphone {
+            position: static;
+            text-align: center;
+            margin-bottom: 1.25rem;
+            .dk_yelp {
+                margin-right: 0;
+            }
+        }
+    }
+
     .dk_blog {
         #main {
             .dk_maincontent {
@@ -923,6 +1045,18 @@ header.header {
             .dk_mobile {
                 display: block;
             }
+        }
+    }
+
+    .dk_footer_inner {
+        .dk_logo, .copyright {
+            float: none;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+        }
+        .copyright {
+            margin-top: 1rem;
         }
     }
 }

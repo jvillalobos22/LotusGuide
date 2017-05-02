@@ -6,7 +6,7 @@
     					</nav>-->
 						<div class="large-12 columns">
 							<a href="#"><img class="dk_logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-guide-logo.png" alt="Lotus Guide Logo"></a>
-							<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All Rights Reserved. Site by <a href="https://www.dkwebdesign.com" rel="nofollow" target="_blank">Dk Web Design</a>.</p>
+							<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All Rights Reserved. Site&nbsp;by&nbsp;<a href="https://www.dkwebdesign.com" rel="nofollow" target="_blank">Dk&nbsp;Web&nbsp;Design</a>.</p>
 						</div>
 					</div> <!-- end #inner-footer -->
 				</footer> <!-- end .footer -->
