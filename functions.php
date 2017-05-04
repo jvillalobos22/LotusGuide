@@ -42,6 +42,7 @@ require_once(get_template_directory().'/assets/functions/pickup-locations.php');
 // Custom Fields
 require_once(get_template_directory().'/assets/functions/homepage-fields.php');
 require_once(get_template_directory().'/assets/functions/secondarypage-fields.php');
+require_once(get_template_directory().'/assets/functions/sidebar-fields.php');
 
 // Custom Shortcodes
 require_once(get_template_directory().'/assets/functions/dk-shortcodes.php');
@@ -50,4 +51,4 @@ require_once(get_template_directory().'/assets/functions/dk-shortcodes.php');
 // require_once(get_template_directory().'/assets/functions/login.php');
 
 // Customize the WordPress admin
-// require_once(get_template_directory().'/assets/functions/admin.php');
+require_once(get_template_directory().'/assets/functions/admin.php');

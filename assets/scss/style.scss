@@ -92,6 +92,8 @@ CSS file.
     #Business Listing Category Archive Template
     #Blog Index Template
     #Blog Article page - single.php, parts/loop-single.php
+    #Pick Up Locations Template
+    #Search Results Template
     #Footer
 	#Media Queries
 ==============================================================================*/
@@ -962,6 +964,40 @@ header.header {
         }
     }
 }
+
+/*==============================================================================
+  	#Search Results Template
+==============================================================================*/
+.dk_search {
+    .dk_noresults {
+        h3 {
+
+        }
+    }
+    .dk_bizsearch, .dk_articlesearch {
+        border-top: 1px solid #e0e0e0;
+
+        .dk_classification {
+            border: 1px solid #e0e0e0;
+            border-top: none;
+            font-size: 0.8375rem;
+            color: $mainTeal;
+            padding: 5px;
+            display: inline-block;
+        }
+
+        .dk_blogexcerpt {
+            border-bottom: none;
+        }
+        h5 {
+            margin-top: 0;
+        }
+    }
+
+}
+
+
+
 /*==============================================================================
   	#Footer
 ==============================================================================*/

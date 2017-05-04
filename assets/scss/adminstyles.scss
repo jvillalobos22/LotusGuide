@@ -6,6 +6,11 @@
     label {
         margin-top: 1.5rem;
         display: block;
+
+        &.dk_inline_block {
+            display: inline-block;
+            margin-top: 0;
+        }
     }
 
     .image-preview {
@@ -34,6 +39,21 @@
             padding: 0 1rem;
             font-weight: bold;
         }
+    }
+}
+
+.dk_meta_editor.dk_sidebar_meta {
+    .dk_twocolumns {
+        border: none;
+        padding: 0 10px 1rem 10px;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .image-preview img {
+        max-width: 250px;
+        display: block;
+        margin: 0 auto;
     }
 }
 
