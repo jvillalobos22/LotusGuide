@@ -428,6 +428,13 @@ header.header {
             &:hover {
                 a {
                     color: #fff;
+
+                    ul a {
+                        color: $mainTeal;
+                        &:hover {
+                            color: #fff;
+                        }
+                    }
                 }
             }
         }
@@ -935,6 +942,27 @@ header.header {
 }
 
 /*==============================================================================
+  	#Pick Up Locations Template
+==============================================================================*/
+.dk_pickup_locations {
+    ul {
+        list-style: none;
+        margin-left: 0.5rem;
+        margin-bottom: 0;
+    }
+    .accordion-content {
+        ul {
+            margin-left: 0.5rem;
+            padding-top: 0.5rem;
+        }
+        li {
+            font-size: 0.8375rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.45;
+        }
+    }
+}
+/*==============================================================================
   	#Footer
 ==============================================================================*/
 .dk_footer_inner {
@@ -974,6 +1002,13 @@ header.header {
     }
     .dk_offcanvas_toggle {
         display: block;
+    }
+    .dk_homepage, .dk_secondarypage {
+        #main {
+            .dk_maincontent {
+                padding-right: 1.375rem;
+            }
+        }
     }
 }
 
@@ -1029,6 +1064,18 @@ header.header {
         }
     }
 
+    .dk_homepage, .dk_secondarypage {
+        #main {
+            padding-right: 0.625rem;
+
+            .dk_maincontent {
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+                margin-bottom: 2rem;
+            }
+        }
+    }
     .dk_blog {
         #main {
             .dk_maincontent {
@@ -1052,6 +1099,16 @@ header.header {
             }
             .dk_mobile {
                 display: block;
+            }
+        }
+    }
+
+    .dk_homecallouts {
+        .columns:first-child, .columns:last-child {
+            .dk_callout {
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 1.5rem;
             }
         }
     }

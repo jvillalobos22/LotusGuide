@@ -26,7 +26,8 @@ function add_secpage_meta_box() {
            $pageTemplate == 'template-secondary-fullwidth.php' ||
            $pageTemplate == 'template-ad-testimonials.php' ||
            $pageTemplate == 'template-business-directory.php' ||
-           $pageTemplate == 'template-blog.php') {
+           $pageTemplate == 'template-blog.php' ||
+           $pageTemplate == 'template-pickup-locations-index.php' ) {
             add_meta_box(
         		'secpage_meta_box', // $id
         		'Secondary Page Template Fields', // $title
