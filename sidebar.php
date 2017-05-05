@@ -6,10 +6,12 @@ if($post_type == 'business_listing') {
 	$listingCatAry = get_term_meta( $obj->term_id, 'listingFields' );
 	$sidebarMeta = $listingCatAry[0];
 } else { //if post, page
-	$pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
+	global $template;
+	$pageTemplate = basename($template);
+
 	if($pageTemplate == 'template-blog.php') {
 		$sidebarMeta = get_post_meta( 187, 'sidebar', true );
-	} elseif ($pagetemplate == 'template-pickup-locations-index.php') {
+	} elseif ($pageTemplate == 'template-pickup-locations-index.php') {
 		$sidebarMeta = get_post_meta( 681, 'sidebar', true );
 	} else {
 		$sidebarMeta = get_post_meta( $post->ID, 'sidebar', true );
