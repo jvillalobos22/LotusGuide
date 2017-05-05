@@ -84,7 +84,29 @@ $upcomingEvents = $sidebarMeta['events-widget'];
 	<!-- Social Media Module -->
 	<?php if($socializeWidget) { ?>
 	<h3 class="dk_heading">Socialize</h3>
-	<p>Facebook buttons</p>
+	<div class="row small-up-4 medium-up-2 large-up-4 dk_sidebarsocial">
+		<div class="column column-block">
+			<a href="<?php echo get_option('facebook_link') ?>" target="_blank">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/facebook-icon.png" alt="Facebook Icon">
+			</a>
+		</div>
+		<div class="column column-block">
+			<a href="<?php echo get_option('twitter_link') ?>" target="_blank">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/twitter-icon.png" alt="Twitter Icon">
+			</a>
+		</div>
+		<div class="column column-block">
+			<a href="<?php echo get_option('google_plus_link') ?>" target="_blank">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/google-plus-icon.png" alt="Google Plus Icon">
+			</a>
+		</div>
+		<div class="column column-block">
+			<a href="<?php echo get_option('yelp_link') ?>" target="_blank">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/yelp-icon.png" alt="Yelp Icon">
+			</a>
+		</div>
+	</div>
+
 	<?php } ?>
 	<!-- Upcoming Events Module -->
 	<?php if($upcomingEvents) { ?>
