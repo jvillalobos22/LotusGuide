@@ -1,6 +1,21 @@
 <?php
+$post_type = get_post_type();
+//if business_listing
+if($post_type == 'business_listing') {
+	$obj = get_queried_object();
+	$listingCatAry = get_term_meta( $obj->term_id, 'listingFields' );
+	$sidebarMeta = $listingCatAry[0];
+} else { //if post, page
+	$pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
+	if($pageTemplate == 'template-blog.php') {
+		$sidebarMeta = get_post_meta( 187, 'sidebar', true );
+	} elseif ($pagetemplate == 'template-pickup-locations-index.php') {
+		$sidebarMeta = get_post_meta( 681, 'sidebar', true );
+	} else {
+		$sidebarMeta = get_post_meta( $post->ID, 'sidebar', true );
+	}
+}
 
-$sidebarMeta = get_post_meta( $post->ID, 'sidebar', true );
 $featuredBusinessWidget = $sidebarMeta['featured-business-checkbox'];
 $featuredBusinessImage = $sidebarMeta['featured-business-image'];
 $featuredBusinessName = $sidebarMeta['featured-business-name'];

@@ -83,13 +83,120 @@ register_taxonomy( 'listing-category',
 add_action( 'listing-category_add_form_fields', 'add_listing_category_fields', 10, 2 );
 function add_listing_category_fields($taxonomy) {
     ?>
-	<div class="form-field term-group">
+	<div class="form-field term-group dk_listing_new">
 		<label for="listingFields[imageurl]"><?php _e( 'Image URL', 'jointswp' ); ?></label>
         <input type="text" id="listingFields[imageurl]" name="listingFields[imageurl]" />
 		<label for="listingFields[imagealt]"><?php _e( 'Image Alt', 'jointswp' ); ?></label>
 		<input type="text" id="listingFields[imagealt]" name="listingFields[imagealt]" />
 		<label for="listingFields[desceditor]"><?php _e( 'Listing Category Description', 'jointswp' ); ?></label>
 		<textarea type="text" id="listingFields[desceditor]" name="listingFields[desceditor]" rows="10" /></textarea>
+		<hr>
+		<h4>Sidebar</h4>
+		<!-- Featured Business Checkbox -->
+		<label class="dk_inline_block">
+		<?php
+		$checkbox_value = $meta['featured-business-checkbox'];
+		if($meta['featured-business-checkbox'] == "") { ?>
+				<input name="listingFields[featured-business-checkbox]" type="checkbox" value="true">
+			<?php } else if($checkbox_value == "true") { ?>
+				<input name="listingFields[featured-business-checkbox]" type="checkbox" value="true" checked>
+			<?php
+		} ?>
+		Use Featured Business Widget</label>
+		<!-- Featured Business Fields -->
+		<label for="listingFields[featured-business-image]">Featured Business Image URL</label>
+		<input type="text" name="listingFields[featured-business-image]" id="listingFields[featured-business-image]" class="meta-image regular-text" value="<?php if ( isset ( $listingFields['featured-business-image'] ) ) echo $listingFields['featured-business-image']; ?>">
+		<label for="listingFields[featured-business-name]">Featured Business Name</label>
+		<input type="text" name="listingFields[featured-business-name]" id="sidebar[featured-business-name]" class="regular-text" value="<?php if ( isset ( $listingFields['featured-business-name'] ) ) echo $listingFields['featured-business-name']; ?>">
+		<label for="listingFields[featured-business-link]">Featured Business Link</label>
+		<input type="text" name="listingFields[featured-business-link]" id="sidebar[featured-business-link]" class="regular-text" value="<?php if ( isset ( $listingFields['featured-business-link'] ) ) echo $listingFields['featured-business-link']; ?>">
+		<p><strong>Other Sidebar Widgets</strong></p>
+		<p style="margin-bottom: 1rem;">Check the box of each sidebar widget you would like included on this page. To edit the text or information that goes along with the widget, see the <strong>Sidebar Settings</strong> section.</p>
+
+		<!-- Recent Issue Checkbox -->
+		<label class="dk_checkbox">
+		<?php
+		$checkbox_value = $listingFields['recent-issue-widget'];
+
+		if($checkbox_value == "") { ?>
+				<input name="listingFields[recent-issue-widget]" type="checkbox" value="true">
+			<?php } else if($checkbox_value == "true") { ?>
+				<input name="listingFields[recent-issue-widget]" type="checkbox" value="true" checked>
+			<?php
+		} ?>
+		Recent Issue Link</label>
+		<!-- About the Lotus Guide Checkbox -->
+		<label class="dk_checkbox">
+		<?php
+		$checkbox_value = $listingFields['about-widget'];
+
+		if($checkbox_value == "") { ?>
+				<input name="listingFields[about-widget]" type="checkbox" value="true">
+			<?php } else if($checkbox_value == "true") { ?>
+				<input name="listingFields[about-widget]" type="checkbox" value="true" checked>
+			<?php
+		} ?>
+		About the Lotus Guide</label>
+		<!-- Advertise With Us Checkbox -->
+		<label class="dk_checkbox">
+		<?php
+		$checkbox_value = $listingFields['advertise-widget'];
+
+		if($checkbox_value == "") { ?>
+				<input name="listingFields[advertise-widget]" type="checkbox" value="true">
+			<?php } else if($checkbox_value == "true") { ?>
+				<input name="listingFields[advertise-widget]" type="checkbox" value="true" checked>
+			<?php
+		} ?>
+		Advertise With Us</label>
+		<!-- Testimonials Checkbox -->
+		<label class="dk_checkbox">
+		<?php
+		$checkbox_value = $listingFields['testimonials-widget'];
+
+		if($checkbox_value == "") { ?>
+				<input name="listingFields[testimonials-widget]" type="checkbox" value="true">
+			<?php } else if($checkbox_value == "true") { ?>
+				<input name="listingFields[testimonials-widget]" type="checkbox" value="true" checked>
+			<?php
+		} ?>
+		Testimonials</label>
+		<!-- Newsletter Sign Up Checkbox -->
+		<label class="dk_checkbox">
+		<?php
+		$checkbox_value = $listingFields['newsletter-widget'];
+
+		if($checkbox_value == "") { ?>
+				<input name="listingFields[newsletter-widget]" type="checkbox" value="true">
+			<?php } else if($checkbox_value == "true") { ?>
+				<input name="listingFields[newsletter-widget]" type="checkbox" value="true" checked>
+			<?php
+		} ?>
+		Newsletter Sign Up</label>
+		<!-- Socialize Checkbox -->
+		<label class="dk_checkbox">
+		<?php
+		$checkbox_value = $listingFields['socialize-widget'];
+
+		if($checkbox_value == "") { ?>
+				<input name="listingFields[socialize-widget]" type="checkbox" value="true">
+			<?php } else if($checkbox_value == "true") { ?>
+				<input name="listingFields[socialize-widget]" type="checkbox" value="true" checked>
+			<?php
+		} ?>
+		Socialize</label>
+		<!-- Events Checkbox -->
+		<label class="dk_checkbox">
+		<?php
+		$checkbox_value = $listingFields['events-widget'];
+
+		if($checkbox_value == "") { ?>
+				<input name="listingFields[events-widget]" type="checkbox" value="true">
+			<?php } else if($checkbox_value == "true") { ?>
+				<input name="listingFields[events-widget]" type="checkbox" value="true" checked>
+			<?php
+		} ?>
+		Upcoming Events</label>
     </div>
 	<?php
 }
@@ -131,6 +238,115 @@ function edit_listing_category_field( $term, $taxonomy ){
         	<textarea rows="8" cols="70" type="text" id="listingFields[desceditor]" name="listingFields[desceditor]" /><?php if ( isset ( $listingFields['desceditor'] ) ) echo $listingFields['desceditor']; ?></textarea>
 		</td>
 	</tr>
+	<tr class="form-field term-group-wrap dk_custom_tax_styles">
+		<th scope="row"><?php _e( 'Sidebar Widgets', 'jointswp' ); ?></th>
+		<td>
+			<label class="dk_checkbox">
+			<?php
+			$checkbox_value = $listingFields['featured-business-checkbox'];
+			if($checkbox_value == "") { ?>
+					<input name="listingFields[featured-business-checkbox]" type="checkbox" value="true">
+				<?php } else if($checkbox_value == "true") { ?>
+					<input name="listingFields[featured-business-checkbox]" type="checkbox" value="true" checked>
+				<?php
+			} ?>
+			Use Featured Business Widget</label>
+			<!-- Featured Business Fields -->
+			<label for="listingFields[featured-business-image]">Featured Business Image URL</label>
+			<input type="text" name="listingFields[featured-business-image]" id="listingFields[featured-business-image]" class="meta-image regular-text" value="<?php if ( isset ( $listingFields['featured-business-image'] ) ) echo $listingFields['featured-business-image']; ?>">
+			<label for="listingFields[featured-business-name]">Featured Business Name</label>
+			<input type="text" name="listingFields[featured-business-name]" id="sidebar[featured-business-name]" class="regular-text" value="<?php if ( isset ( $listingFields['featured-business-name'] ) ) echo $listingFields['featured-business-name']; ?>">
+			<label for="listingFields[featured-business-link]">Featured Business Link</label>
+			<input type="text" name="listingFields[featured-business-link]" id="sidebar[featured-business-link]" class="regular-text" value="<?php if ( isset ( $listingFields['featured-business-link'] ) ) echo $listingFields['featured-business-link']; ?>">
+			<p><strong>Other Widgets</strong></p>
+			<p style="margin-bottom: 1rem;">Check the box of each sidebar widget you would like included on this page. To edit the text or information that goes along with the widget, see the <strong>Sidebar Settings</strong> section.</p>
+			<!-- Recent Issue Checkbox -->
+            <label class="dk_checkbox">
+            <?php
+            $checkbox_value = $listingFields['recent-issue-widget'];
+
+            if($checkbox_value == "") { ?>
+                    <input name="listingFields[recent-issue-widget]" type="checkbox" value="true">
+                <?php } else if($checkbox_value == "true") { ?>
+                    <input name="listingFields[recent-issue-widget]" type="checkbox" value="true" checked>
+                <?php
+            } ?>
+            Recent Issue Link</label>
+			<!-- About the Lotus Guide Checkbox -->
+            <label class="dk_checkbox">
+            <?php
+            $checkbox_value = $listingFields['about-widget'];
+
+            if($checkbox_value == "") { ?>
+                    <input name="listingFields[about-widget]" type="checkbox" value="true">
+                <?php } else if($checkbox_value == "true") { ?>
+                    <input name="listingFields[about-widget]" type="checkbox" value="true" checked>
+                <?php
+            } ?>
+            About the Lotus Guide</label>
+            <!-- Advertise With Us Checkbox -->
+            <label class="dk_checkbox">
+            <?php
+            $checkbox_value = $listingFields['advertise-widget'];
+
+            if($checkbox_value == "") { ?>
+                    <input name="listingFields[advertise-widget]" type="checkbox" value="true">
+                <?php } else if($checkbox_value == "true") { ?>
+                    <input name="listingFields[advertise-widget]" type="checkbox" value="true" checked>
+                <?php
+            } ?>
+            Advertise With Us</label>
+            <!-- Testimonials Checkbox -->
+            <label class="dk_checkbox">
+            <?php
+            $checkbox_value = $listingFields['testimonials-widget'];
+
+            if($checkbox_value == "") { ?>
+                    <input name="listingFields[testimonials-widget]" type="checkbox" value="true">
+                <?php } else if($checkbox_value == "true") { ?>
+                    <input name="listingFields[testimonials-widget]" type="checkbox" value="true" checked>
+                <?php
+            } ?>
+            Testimonials</label>
+            <!-- Newsletter Sign Up Checkbox -->
+            <label class="dk_checkbox">
+            <?php
+            $checkbox_value = $listingFields['newsletter-widget'];
+
+            if($checkbox_value == "") { ?>
+                    <input name="listingFields[newsletter-widget]" type="checkbox" value="true">
+                <?php } else if($checkbox_value == "true") { ?>
+                    <input name="listingFields[newsletter-widget]" type="checkbox" value="true" checked>
+                <?php
+            } ?>
+            Newsletter Sign Up</label>
+            <!-- Socialize Checkbox -->
+            <label class="dk_checkbox">
+            <?php
+            $checkbox_value = $listingFields['socialize-widget'];
+
+            if($checkbox_value == "") { ?>
+                    <input name="listingFields[socialize-widget]" type="checkbox" value="true">
+                <?php } else if($checkbox_value == "true") { ?>
+                    <input name="listingFields[socialize-widget]" type="checkbox" value="true" checked>
+                <?php
+            } ?>
+            Socialize</label>
+            <!-- Events Checkbox -->
+            <label class="dk_checkbox">
+            <?php
+            $checkbox_value = $listingFields['events-widget'];
+
+            if($checkbox_value == "") { ?>
+                    <input name="listingFields[events-widget]" type="checkbox" value="true">
+                <?php } else if($checkbox_value == "true") { ?>
+                    <input name="listingFields[events-widget]" type="checkbox" value="true" checked>
+                <?php
+            } ?>
+            Upcoming Events</label>
+		</td>
+	</tr>
+
 	<?php
 }
 /* Update edited fields to listing category taxonomy */

@@ -50,6 +50,7 @@
                     <?php
                     $post_type = get_post_type();
                     echo '<code>Post Type = '.$post_type.'</code>';
+                    echo '<code>$post->ID = '.$post->ID.'</code>';
                     ?>
                     <div class="row dk_header_row">
                         <a href="<?php echo get_home_url(); ?>"><img class="dk_logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-guide-logo.png" alt="Lotus Guide Logo"></a>

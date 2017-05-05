@@ -53,7 +53,7 @@ function show_sidebar_meta_box() {
             <div class="dk_twocolumns">
                 <div class="column">
                     <!-- Featured Business Checkbox -->
-                    <label class="dk_inline_block" for="sidebar[featured-business-checkbox]">
+                    <label class="dk_inline_block">
                     <?php
                     $checkbox_value = $meta['featured-business-checkbox'];
 
@@ -62,8 +62,7 @@ function show_sidebar_meta_box() {
                         <?php } else if($checkbox_value == "true") { ?>
                             <input name="sidebar[featured-business-checkbox]" type="checkbox" value="true" checked>
                         <?php
-                    }
-                    }?>
+                    } ?>
                     Use Featured Business Widget</label>
                     <!-- Featured Business Fields -->
                     <label for="sidebar[featured-business-image]">Image Upload</label>
@@ -86,7 +85,7 @@ function show_sidebar_meta_box() {
             <p style="margin-bottom: 0;">Check the box of each sidebar widget you would like included on this page. To edit the text or information that goes along with the widget, see the <strong>Sidebar Settings</strong> section.</p>
             <div class="column">
                 <!-- Recent Issue Checkbox -->
-                <label for="meta-box-checkbox">
+                <label>
                 <?php
                 $checkbox_value = $meta['recent-issue-widget'];
 
@@ -98,7 +97,7 @@ function show_sidebar_meta_box() {
                 } ?>
                 Recent Issue Link</label>
                 <!-- Newsletter Sign Up Checkbox -->
-                <label for="meta-box-checkbox">
+                <label>
                 <?php
                 $checkbox_value = $meta['newsletter-widget'];
 
@@ -110,7 +109,7 @@ function show_sidebar_meta_box() {
                 } ?>
                 Newsletter Sign Up</label>
                 <!-- Socialize Checkbox -->
-                <label for="meta-box-checkbox">
+                <label>
                 <?php
                 $checkbox_value = $meta['socialize-widget'];
 
@@ -122,7 +121,7 @@ function show_sidebar_meta_box() {
                 } ?>
                 Socialize</label>
                 <!-- Events Checkbox -->
-                <label for="meta-box-checkbox">
+                <label>
                 <?php
                 $checkbox_value = $meta['events-widget'];
 
@@ -136,7 +135,7 @@ function show_sidebar_meta_box() {
             </div><!--
             --><div class="column">
                 <!-- About the Lotus Guide Checkbox -->
-                <label for="meta-box-checkbox">
+                <label>
                 <?php
                 $checkbox_value = $meta['about-widget'];
 
@@ -148,7 +147,7 @@ function show_sidebar_meta_box() {
                 } ?>
                 About the Lotus Guide</label>
                 <!-- Advertise With Us Checkbox -->
-                <label for="meta-box-checkbox">
+                <label>
                 <?php
                 $checkbox_value = $meta['advertise-widget'];
 
@@ -160,7 +159,7 @@ function show_sidebar_meta_box() {
                 } ?>
                 Advertise With Us</label>
                 <!-- Testimonials Checkbox -->
-                <label for="meta-box-checkbox">
+                <label>
                 <?php
                 $checkbox_value = $meta['testimonials-widget'];
 

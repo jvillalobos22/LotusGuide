@@ -79,3 +79,12 @@
 
     }
 }
+
+.dk_custom_tax_styles, .dk_listing_new {
+    .dk_checkbox, input[type='text'] {
+        margin-bottom: 1rem;
+    }
+    label {
+        display: block;
+    }
+}
