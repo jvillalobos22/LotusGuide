@@ -50,32 +50,36 @@ $upcomingEvents = $sidebarMeta['events-widget'];
 	<!-- Recent Issue Module -->
 	<?php if($recentIssue) { ?>
 	<h3 class="dk_heading">Recent Issue</h3>
-	<a href="#">
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/images/homepage-flipbook-placeholder.jpg" alt="addalt">
+	<a href="<?php echo get_option('recent_issue_link') ?>">
+		<?php if(get_option('recent_issue_img')) { ?>
+			<img src="<?php echo get_option('recent_issue_img'); ?>" alt="Recent Issue of the Lotus Guide">
+		<?php } else { ?>
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/homepage-flipbook-placeholder.jpg" alt="Recent Issue of the Lotus Guide">
+		<?php } ?>
 	</a>
 	<?php } ?>
 	<!-- About Module -->
 	<?php if($aboutWidget) { ?>
 	<h3 class="dk_heading">About the Lotus Guide</h3>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate turpis eget finibus dictum. Sed non erat quis ex semper iaculis eu eu lectus.</p>
-	<a class="dk_btn" href="#">Learn More</a>
+	<p><?php echo get_option('about_text') ?></p>
+	<a class="dk_btn" href="<?php echo get_option('about_link_url') ?>">Learn More</a>
 	<?php } ?>
 	<!-- Advertise With Us Module -->
 	<?php if($advertiseWidget) { ?>
 	<h3 class="dk_heading">Advertise With Us</h3>
-	<p>Build your business success with printed media, email, video and online advertising designed for your target audience!</p>
-	<a class="dk_btn" href="#">Get the Details</a>
+	<p><?php echo get_option('advertise_text') ?></p>
+	<a class="dk_btn" href="<?php echo get_option('advertise_link_url') ?>">Get the Details</a>
 	<?php } ?>
 	<!-- Testimonial Module -->
 	<?php if($testimonialsWidget) { ?>
 	<h3 class="dk_heading">Testimonials From Our Users</h3>
-	<p>&ldquo;I began advertising in the Lotus Guide in the Summer of 2015 and have benefited from a steady increase in new client leads and exposure to the community. Rahasya and Dhara have been quite helpful in making the process as streamlined and “painless” as possible!...&rdquo;</p>
-	<a class="dk_btn" href="#">Our Testimonials</a>
+	<p>&ldquo;<?php echo get_option('testimonial_text') ?>&rdquo;</p>
+	<a class="dk_btn" href="<?php echo get_option('testimonial_link'); ?>">Our Testimonials</a>
 	<?php } ?>
 	<!-- Newsletter Module -->
 	<?php if($newsletter) { ?>
 	<h3 class="dk_heading">Newsletter</h3>
-	<p>Sign up to receive our newsletter right to your inbox! <a href="#">Get Started Now!</a></p>
+	<p><?php echo get_option('newsletter_text') ?> <a href="<?php echo get_option('newsletter_link_url') ?>"><?php echo get_option('newsletter_link_text') ?></a></p>
 	<?php } ?>
 	<!-- Social Media Module -->
 	<?php if($socializeWidget) { ?>

@@ -88,3 +88,13 @@
         display: block;
     }
 }
+
+.dk_optionspage {
+    table.form-table {
+        max-width: 800px;
+
+        input, textarea {
+            width: 100%;
+        }
+    }
+}

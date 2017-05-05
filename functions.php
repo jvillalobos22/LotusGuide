@@ -44,6 +44,10 @@ require_once(get_template_directory().'/assets/functions/homepage-fields.php');
 require_once(get_template_directory().'/assets/functions/secondarypage-fields.php');
 require_once(get_template_directory().'/assets/functions/sidebar-fields.php');
 
+// Add Custom Settings Pages
+require_once(get_template_directory().'/assets/functions/sidebar-settings.php');
+require_once(get_template_directory().'/assets/functions/social-media-settings.php');
+
 // Custom Shortcodes
 require_once(get_template_directory().'/assets/functions/dk-shortcodes.php');
 

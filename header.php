@@ -59,19 +59,19 @@
                                 <a href="tel:+15308948433">530-894-8433</a> | <a href="tel:+15308948433">530-89-GUIDE</a>
                             </div>
                             <div class="dk_headersocial">
-                                <a class="dk_facebook" href="#" target="_blank">
+                                <a class="dk_facebook" href="<?php echo get_option('facebook_link') ?>" target="_blank">
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
                                 </a>
-                                <a class="dk_youtube" href="#" target="_blank">
+                                <a class="dk_youtube" href="<?php echo get_option('youtube_link') ?>" target="_blank">
                                     <i class="fa fa-youtube" aria-hidden="true"></i>
                                 </a>
-                                <a class="dk_twitter" href="#" target="_blank">
+                                <a class="dk_twitter" href="<?php echo get_option('twitter_link') ?>" target="_blank">
                                     <i class="fa fa-twitter" aria-hidden="true"></i>
                                 </a>
-                                <a class="dk_googleplus" href="#" target="_blank">
+                                <a class="dk_googleplus" href="<?php echo get_option('google_plus_link') ?>" target="_blank">
                                     <i class="fa fa-google-plus" aria-hidden="true"></i>
                                 </a>
-                                <a class="dk_yelp" href="#" target="_blank">
+                                <a class="dk_yelp" href="<?php echo get_option('yelp_link') ?>" target="_blank">
                                     <i class="fa fa-yelp" aria-hidden="true"></i>
                                 </a>
                             </div>
