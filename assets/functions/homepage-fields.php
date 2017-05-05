@@ -125,6 +125,11 @@ function show_homepage_meta_box() {
             <textarea name="homepage[testimonial-quote]" id="homepage[testimonial-quote]" rows="3" cols="70" style="width: 100%; max-width: 450px;"><?php if ( isset ( $meta['testimonial-quote'] ) ) echo $meta['testimonial-quote']; ?></textarea>
             <label for="homepage[testimonial-name]">Name of Reviewer</label>
             <input type="text" name="homepage[testimonial-name]" id="homepage[testimonial-name]" class="regular-text" value="<?php if ( isset ( $meta['testimonial-name'] ) ) echo $meta['testimonial-name']; ?>">
+
+            <label for="homepage[testimonial-button-text]">Button Text</label>
+            <input type="text" name="homepage[testimonial-button-text]" id="homepage[testimonial-button-text]" class="regular-text" value="<?php if ( isset ( $meta['testimonial-button-text'] ) ) echo $meta['testimonial-button-text']; ?>">
+            <label for="homepage[testimonial-button-link]">Button Link URL</label>
+            <input type="text" name="homepage[testimonial-button-link]" id="homepage[testimonial-button-link]" class="regular-text" value="<?php if ( isset ( $meta['testimonial-button-link'] ) ) echo $meta['testimonial-button-link']; ?>">
         </div>
         <fieldset>
             <legend>Banner Ad 2</legend>

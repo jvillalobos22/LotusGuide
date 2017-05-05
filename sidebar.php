@@ -1,22 +1,27 @@
 <?php
 $post_type = get_post_type();
-//if business_listing
-if($post_type == 'business_listing') {
-	$obj = get_queried_object();
-	$listingCatAry = get_term_meta( $obj->term_id, 'listingFields' );
-	$sidebarMeta = $listingCatAry[0];
-} else { //if post, page
-	global $template;
-	$pageTemplate = basename($template);
-
-	if($pageTemplate == 'template-blog.php') {
-		$sidebarMeta = get_post_meta( 187, 'sidebar', true );
-	} elseif ($pageTemplate == 'template-pickup-locations-index.php') {
-		$sidebarMeta = get_post_meta( 681, 'sidebar', true );
-	} else {
-		$sidebarMeta = get_post_meta( $post->ID, 'sidebar', true );
+global $template;
+$pageTemplate = basename($template);
+echo '<code>$pageTemplate = '.$pageTemplate.'</code>';
+if($pageTemplate = 'search.php') {
+	// get default sidebar
+} else {
+	//if business_listing
+	if($post_type == 'business_listing') {
+		$obj = get_queried_object();
+		$listingCatAry = get_term_meta( $obj->term_id, 'listingFields' );
+		$sidebarMeta = $listingCatAry[0];
+	} else { //if post, page
+		if($pageTemplate == 'template-blog.php') {
+			$sidebarMeta = get_post_meta( 187, 'sidebar', true );
+		} elseif ($pageTemplate == 'template-pickup-locations-index.php') {
+			$sidebarMeta = get_post_meta( 681, 'sidebar', true );
+		} else {
+			$sidebarMeta = get_post_meta( $post->ID, 'sidebar', true );
+		}
 	}
 }
+
 
 $featuredBusinessWidget = $sidebarMeta['featured-business-checkbox'];
 $featuredBusinessImage = $sidebarMeta['featured-business-image'];

@@ -17,7 +17,7 @@
 				$('.dk_homeslider').unslider({
 					autoplay: true,
 					delay: 6000,
-					nav: false,
+					nav: true,
 					arrows: false
 				});
 			});
