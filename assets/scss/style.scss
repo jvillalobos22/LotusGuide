@@ -176,7 +176,7 @@ h1 {
         padding-right: 1.5rem;
 
         .dk_maincontent {
-            padding-right: 4.375rem;
+            padding-right: 2.4375rem; //4.375rem;
             border-right: 1px solid #e0e0e0;
         }
     }
@@ -525,6 +525,11 @@ header.header {
     }
     .dk_btn {
         margin-top: 0.625rem;
+    }
+
+    .dk_newsletter_legal {
+        font-size: 0.75rem;
+        color: #a3a3a3;
     }
 }
 .dk_searchbar {
@@ -1019,7 +1024,37 @@ header.header {
 
 }
 
+/*==============================================================================
+  	#Contact Form Styles
+==============================================================================*/
+.dk_submit_btn {
+    font-family: $body-font-family;
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 0.5rem 0.925rem;
+    color: #fff;
+    border: none;
+    margin-top: 1.125rem;
+    cursor: pointer;
+    background-color: $mainTeal;
+    font-size: 0.925rem;
+    -webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
 
+    &:hover, &:focus {
+        background-color: darken($mainTeal, 8%);
+        text-decoration: none;
+        color: #fff;
+    }
+    &:active {
+        -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+        -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+        box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+        background-color: darken($mainTeal, 12%);
+        color: #fff;
+    }
+}
 
 /*==============================================================================
   	#Footer

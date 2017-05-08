@@ -3,7 +3,7 @@ $post_type = get_post_type();
 global $template;
 $pageTemplate = basename($template);
 echo '<code>$pageTemplate = '.$pageTemplate.'</code>';
-if($pageTemplate = 'search.php') {
+if($pageTemplate == 'search.php') {
 	// get default sidebar
 } else {
 	//if business_listing
@@ -21,7 +21,6 @@ if($pageTemplate = 'search.php') {
 		}
 	}
 }
-
 
 $featuredBusinessWidget = $sidebarMeta['featured-business-checkbox'];
 $featuredBusinessImage = $sidebarMeta['featured-business-image'];
@@ -84,7 +83,49 @@ $upcomingEvents = $sidebarMeta['events-widget'];
 	<!-- Newsletter Module -->
 	<?php if($newsletter) { ?>
 	<h3 class="dk_heading">Newsletter</h3>
-	<p><?php echo get_option('newsletter_text') ?> <a href="<?php echo get_option('newsletter_link_url') ?>"><?php echo get_option('newsletter_link_text') ?></a></p>
+	<!--<p><?php //echo get_option('newsletter_text') ?> <a href="<?php //echo get_option('newsletter_link_url') ?>"><?php //echo get_option('newsletter_link_text') ?></a></p>-->
+	<!--Begin CTCT Sign-Up Form-->
+	<!-- EFD 1.0.0 [Mon May 08 17:59:51 EDT 2017] -->
+	<!--<link rel='stylesheet' type='text/css' href='https://static.ctctcdn.com/h/contacts-embedded-signup-assets/1.0.2/css/signup-form.css'>-->
+	<div class="ctct-embed-signup">
+	   <div>
+	       <span id="success_message" style="display:none;">
+	           <div style="text-align:center;">Thanks for signing up!</div>
+	       </span>
+	       <form data-id="embedded_signup:form" class="ctct-custom-form Form" name="embedded_signup" method="POST" action="https://visitor2.constantcontact.com/api/signup">
+	           <p>Sign up to receive our newsletter right to your inbox!</p>
+	           <!-- The following code must be included to ensure your sign-up form works properly. -->
+	           <input data-id="ca:input" type="hidden" name="ca" value="557e5a8e-b497-4119-9499-2cb58d82f86d">
+	           <input data-id="list:input" type="hidden" name="list" value="3">
+	           <input data-id="source:input" type="hidden" name="source" value="EFD">
+	           <input data-id="required:input" type="hidden" name="required" value="list,email,first_name">
+	           <input data-id="url:input" type="hidden" name="url" value="">
+	           <p data-id="Email Address:p" ><label data-id="Email Address:label" data-name="email" class="ctct-form-required">Email Address</label> <input data-id="Email Address:input" type="text" name="email" value="" maxlength="80"></p>
+	           <p data-id="First Name:p" ><label data-id="First Name:label" data-name="first_name" class="ctct-form-required">First Name</label> <input data-id="First Name:input" type="text" name="first_name" value="" maxlength="50"></p>
+	           <p data-id="City:p" ><label data-id="City:label" data-name="address_city">City</label> <input data-id="City:input" type="text" name="address_city" value="" maxlength="50"></p>
+			   <div><small class="dk_newsletter_legal">By submitting this form, you are granting Lotus Guide permission to email you. You may unsubscribe via the link found at the bottom of every email.  (See our <a href="http://www.constantcontact.com/legal/privacy-statement" target="_blank">Email Privacy Policy</a> for details.)</small></div>
+			   <button type="submit" class="dk_submit_btn" data-enabled="enabled">Sign Up</button>
+	       </form>
+	   </div>
+	</div>
+	<script type='text/javascript'>
+	   var localizedErrMap = {};
+	   localizedErrMap['required'] = 		'This field is required.';
+	   localizedErrMap['ca'] = 			'An unexpected error occurred while attempting to send email.';
+	   localizedErrMap['email'] = 			'Please enter your email address in name@email.com format.';
+	   localizedErrMap['birthday'] = 		'Please enter birthday in MM/DD format.';
+	   localizedErrMap['anniversary'] = 	'Please enter anniversary in MM/DD/YYYY format.';
+	   localizedErrMap['custom_date'] = 	'Please enter this date in MM/DD/YYYY format.';
+	   localizedErrMap['list'] = 			'Please select at least one email list.';
+	   localizedErrMap['generic'] = 		'This field is invalid.';
+	   localizedErrMap['shared'] = 		'Sorry, we could not complete your sign-up. Please contact us to resolve this.';
+	   localizedErrMap['state_mismatch'] = 'Mismatched State/Province and Country.';
+		localizedErrMap['state_province'] = 'Select a state/province';
+	   localizedErrMap['selectcountry'] = 	'Select a country';
+	   var postURL = 'https://visitor2.constantcontact.com/api/signup';
+	</script>
+	<script type='text/javascript' src='https://static.ctctcdn.com/h/contacts-embedded-signup-assets/1.0.2/js/signup-form.js'></script>
+	<!--End CTCT Sign-Up Form-->
 	<?php } ?>
 	<!-- Social Media Module -->
 	<?php if($socializeWidget) { ?>
