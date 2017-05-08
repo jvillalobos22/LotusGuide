@@ -41,8 +41,21 @@ function dk_custom_sidebar_settings() {
 	register_setting( 'dk-sidebar-settings-group', 'testimonial_text');
     register_setting( 'dk-sidebar-settings-group', 'testimonial_link');
 
+	register_setting( 'dk-sidebar-settings-group', 'default_sidebar_recent_issue');
+	register_setting( 'dk-sidebar-settings-group', 'default_sidebar_newsletter');
+	register_setting( 'dk-sidebar-settings-group', 'default_sidebar_socialize');
+	register_setting( 'dk-sidebar-settings-group', 'default_sidebar_upcoming_events');
+	register_setting( 'dk-sidebar-settings-group', 'default_sidebar_about');
+	register_setting( 'dk-sidebar-settings-group', 'default_sidebar_advertise');
+	register_setting( 'dk-sidebar-settings-group', 'default_sidebar_testimonials');
+
+	register_setting( 'dk-sidebar-settings-group', 'default_sidebar_featured_biz');
+	register_setting( 'dk-sidebar-settings-group', 'default_sidebar_featured_biz_image');
+	register_setting( 'dk-sidebar-settings-group', 'default_sidebar_featured_biz_name');
+	register_setting( 'dk-sidebar-settings-group', 'default_sidebar_featured_biz_link');
 	// Register Settings Section
 	add_settings_section( 'dk-sidebar-options', 'Edit Widget Content', 'dk_sidebar_settings', 'dk_sidebar_options');
+	add_settings_section( 'dk-default-sidebar-options', 'Edit Default Sidebar', 'dk_default_sidebar_settings', 'dk_sidebar_options');
 
 	// Register Settings Fields
     add_settings_field( 'recent_issue_img', 'Recent Issue Image', 'dk_recent_issue_img', 'dk_sidebar_options', 'dk-sidebar-options' );
@@ -56,10 +69,17 @@ function dk_custom_sidebar_settings() {
 	add_settings_field( 'newsletter-link-url', 'Newsletter Link URL', 'dk_newsletter_link_url', 'dk_sidebar_options', 'dk-sidebar-options' );
 	add_settings_field( 'testimonial-text', 'Testimonial Text', 'dk_testimonial_text', 'dk_sidebar_options', 'dk-sidebar-options' );
 	add_settings_field( 'testimonial-link', 'Testimonial Link URL', 'dk_testimonial_link', 'dk_sidebar_options', 'dk-sidebar-options' );
+
+	add_settings_field( 'default-sidebar-featured-biz', 'Default Sidebar Featured Business', 'dk_default_sidebar_featured_biz', 'dk_sidebar_options', 'dk-default-sidebar-options' );
+	add_settings_field( 'default-sidebar-recent-issue', 'Default Sidebar Widgets', 'dk_default_sidebar', 'dk_sidebar_options', 'dk-default-sidebar-options' );
 }
 
 function dk_sidebar_settings() {
 	echo 'A few options used to updated/edit content in the sidebar widgets.';
+}
+
+function dk_default_sidebar_settings() {
+	echo 'You can set which widgets will show up on any default pages that cannot be set individually such as search results pages and event pages';
 }
 
 function dk_recent_issue_img() {
@@ -115,6 +135,103 @@ function dk_testimonial_text() {
 function dk_testimonial_link() {
 	$testimonialLink = esc_attr( get_option( 'testimonial_link' ) );
 	echo '<input type="text" name="testimonial_link" value="'.$testimonialLink.'" placeholder="Testimonial Link URL">';
+}
+
+function dk_default_sidebar_featured_biz() {
+	echo '<div class="dk_checkboxes">';
+	// Recent Issue Checkbox
+	echo '<label>';
+	$checkbox_value = esc_attr( get_option( 'default_sidebar_featured_biz' ) );
+	if($checkbox_value == "") {
+		echo '<input name="default_sidebar_featured_biz" type="checkbox" value="true">';
+	} else if($checkbox_value == "true") {
+		echo '<input name="default_sidebar_featured_biz" type="checkbox" value="true" checked>';
+	}
+	echo 'Use Featured Business Widget?</label>';
+
+	$defaultFeaturedBizImage = esc_attr( get_option( 'default_sidebar_featured_biz_image' ) );
+    echo '<input type="text" name="default_sidebar_featured_biz_image" value="'.$defaultFeaturedBizImage.'" placeholder="Featured Business Image URL">';
+
+	$defaultFeaturedBizName = esc_attr( get_option( 'default_sidebar_featured_biz_name' ) );
+	echo '<input type="text" name="default_sidebar_featured_biz_name" value="'.$defaultFeaturedBizName.'" placeholder="Featured Business Name">';
+
+	$defaultFeaturedBizLink = esc_attr( get_option( 'default_sidebar_featured_biz_link' ) );
+	echo '<input type="text" name="default_sidebar_featured_biz_link" value="'.$defaultFeaturedBizLink.'" placeholder="Featured Business Link URL">';
+}
+
+function dk_default_sidebar() {
+	echo '<div class="dk_checkboxes">';
+	// Recent Issue Checkbox
+	echo '<label>';
+	$checkbox_value = esc_attr( get_option( 'default_sidebar_recent_issue' ) );
+	if($checkbox_value == "") {
+		echo '<input name="default_sidebar_recent_issue" type="checkbox" value="true">';
+	} else if($checkbox_value == "true") {
+		echo '<input name="default_sidebar_recent_issue" type="checkbox" value="true" checked>';
+	}
+	echo 'Recent Issue</label>';
+
+	//Newsletter Sign Up Checkbox
+	echo '<label>';
+	$checkbox_value = esc_attr( get_option( 'default_sidebar_newsletter' ) );
+	if($checkbox_value == "") {
+		echo '<input name="default_sidebar_newsletter" type="checkbox" value="true">';
+	} else if($checkbox_value == "true") {
+		echo '<input name="default_sidebar_newsletter" type="checkbox" value="true" checked>';
+	}
+	echo 'Newsletter Sign Up</label>';
+
+	// Socialize Checkbox -->
+	echo '<label>';
+
+	$checkbox_value = esc_attr( get_option( 'default_sidebar_socialize' ) );
+	if($checkbox_value == "") {
+		echo '<input name="default_sidebar_socialize" type="checkbox" value="true">';
+	} else if($checkbox_value == "true") {
+		echo '<input name="default_sidebar_socialize" type="checkbox" value="true" checked>';
+	}
+	echo 'Socialize</label>';
+
+	// Events Checkbox -->
+	echo '<label>';
+	$checkbox_value = esc_attr( get_option( 'default_sidebar_upcoming_events' ) );
+	if($checkbox_value == "") {
+		echo '<input name="default_sidebar_upcoming_events" type="checkbox" value="true">';
+	} else if($checkbox_value == "true") {
+		echo '<input name="default_sidebar_upcoming_events" type="checkbox" value="true" checked>';
+	}
+	echo 'Upcoming Events</label>';
+
+	// About the Lotus Guide Checkbox -->
+	echo '<label>';
+	$checkbox_value = esc_attr( get_option( 'default_sidebar_about' ) );
+	if($checkbox_value == "") {
+		echo '<input name="default_sidebar_about" type="checkbox" value="true">';
+	} else if($checkbox_value == "true") {
+		echo '<input name="default_sidebar_about" type="checkbox" value="true" checked>';
+	}
+	echo 'About the Lotus Guide</label>';
+
+	// Advertise With Us Checkbox -->
+	echo '<label>';
+	$checkbox_value = esc_attr( get_option( 'default_sidebar_advertise' ) );
+	if($checkbox_value == "") {
+		echo '<input name="default_sidebar_advertise" type="checkbox" value="true">';
+	} else if($checkbox_value == "true") {
+		echo '<input name="default_sidebar_advertise" type="checkbox" value="true" checked>';
+	}
+	echo 'Advertise With Us</label>';
+
+	// Testimonials Checkbox -->
+	echo '<label>';
+	$checkbox_value = esc_attr( get_option( 'default_sidebar_testimonials' ) );
+	if($checkbox_value == "") {
+		echo '<input name="default_sidebar_testimonials" type="checkbox" value="true">';
+	} else if($checkbox_value == "true") {
+		echo '<input name="default_sidebar_testimonials" type="checkbox" value="true" checked>';
+	}
+	echo 'Testimonials</label>';
+
 }
 
 function dk_sidebar_create_page() {

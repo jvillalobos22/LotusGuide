@@ -95,6 +95,21 @@
 
         input, textarea {
             width: 100%;
+
+            &[type='checkbox'] {
+                width: 16px;
+            }
+        }
+    }
+
+    .dk_checkboxes {
+        label {
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        input[type='text'] {
+            margin-bottom: 0.75rem;
         }
     }
 }

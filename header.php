@@ -53,7 +53,7 @@
                     echo '<code>$post->ID = '.$post->ID.'</code>';
                     ?>
                     <div class="row dk_header_row">
-                        <a href="<?php echo get_home_url(); ?>"><img class="dk_logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-guide-logo.png" alt="Lotus Guide Logo"></a>
+                        <div class="dk_logo"><a href="<?php echo get_home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-guide-logo.png" alt="Lotus Guide Logo"></a></div>
                         <div class="dk_header_contact">
                             <div class="dk_headerphone">
                                 <a href="tel:+15308948433">530-894-8433</a> | <a href="tel:+15308948433">530-89-GUIDE</a>

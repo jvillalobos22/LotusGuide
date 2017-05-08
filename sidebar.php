@@ -3,8 +3,20 @@ $post_type = get_post_type();
 global $template;
 $pageTemplate = basename($template);
 echo '<code>$pageTemplate = '.$pageTemplate.'</code>';
-if($pageTemplate == 'search.php') {
+if($pageTemplate == 'search.php' || $pageTemplate == 'page.php') {
 	// get default sidebar
+	$featuredBusinessWidget = esc_attr( get_option( 'default_sidebar_featured_biz' ) );
+	$featuredBusinessImage = esc_attr( get_option( 'default_sidebar_featured_biz_image' ) );
+	$featuredBusinessName = esc_attr( get_option( 'default_sidebar_featured_biz_name' ) );
+	$featuredBusinessLink = esc_attr( get_option( 'default_sidebar_featured_biz_link' ) );
+
+	$recentIssue = esc_attr( get_option( 'default_sidebar_recent_issue' ) );
+	$aboutWidget = esc_attr( get_option( 'default_sidebar_about' ) );
+	$advertiseWidget = esc_attr( get_option( 'default_sidebar_advertise' ) );
+	$testimonialsWidget = esc_attr( get_option( 'default_sidebar_testimonials' ) );
+	$newsletter = esc_attr( get_option( 'default_sidebar_newsletter' ) );
+	$socializeWidget = esc_attr( get_option( 'default_sidebar_socialize' ) );
+	$upcomingEvents = esc_attr( get_option( 'default_sidebar_upcoming_events' ) );
 } else {
 	//if business_listing
 	if($post_type == 'business_listing') {
@@ -20,20 +32,19 @@ if($pageTemplate == 'search.php') {
 			$sidebarMeta = get_post_meta( $post->ID, 'sidebar', true );
 		}
 	}
+	$featuredBusinessWidget = $sidebarMeta['featured-business-checkbox'];
+	$featuredBusinessImage = $sidebarMeta['featured-business-image'];
+	$featuredBusinessName = $sidebarMeta['featured-business-name'];
+	$featuredBusinessLink = $sidebarMeta['featured-business-link'];
+
+	$recentIssue = $sidebarMeta['recent-issue-widget'];
+	$aboutWidget = $sidebarMeta['about-widget'];
+	$advertiseWidget = $sidebarMeta['advertise-widget'];
+	$testimonialsWidget = $sidebarMeta['testimonials-widget'];
+	$newsletter = $sidebarMeta['newsletter-widget'];
+	$socializeWidget = $sidebarMeta['socialize-widget'];
+	$upcomingEvents = $sidebarMeta['events-widget'];
 }
-
-$featuredBusinessWidget = $sidebarMeta['featured-business-checkbox'];
-$featuredBusinessImage = $sidebarMeta['featured-business-image'];
-$featuredBusinessName = $sidebarMeta['featured-business-name'];
-$featuredBusinessLink = $sidebarMeta['featured-business-link'];
-
-$recentIssue = $sidebarMeta['recent-issue-widget'];
-$aboutWidget = $sidebarMeta['about-widget'];
-$advertiseWidget = $sidebarMeta['advertise-widget'];
-$testimonialsWidget = $sidebarMeta['testimonials-widget'];
-$newsletter = $sidebarMeta['newsletter-widget'];
-$socializeWidget = $sidebarMeta['socialize-widget'];
-$upcomingEvents = $sidebarMeta['events-widget'];
 
 ?>
 <div class="dk_sidebar">
