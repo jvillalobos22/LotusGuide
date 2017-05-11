@@ -2,7 +2,7 @@
 $post_type = get_post_type();
 global $template;
 $pageTemplate = basename($template);
-echo '<code>$pageTemplate = '.$pageTemplate.'</code>';
+//echo '<code>$pageTemplate = '.$pageTemplate.'</code>';
 if($pageTemplate == 'search.php' || $pageTemplate == 'page.php') {
 	// get default sidebar
 	$featuredBusinessWidget = esc_attr( get_option( 'default_sidebar_featured_biz' ) );
