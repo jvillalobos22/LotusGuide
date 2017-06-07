@@ -11,7 +11,8 @@ Template Name: Homepage Template
 
 				$args = array(
 					'post_type' => 'homepage_slide',
-					'orderby' => 'menu_order',
+					'orderby' => 'title',
+					'order' => 'ASC',
 					'posts_per_page' => -1
 				);
 

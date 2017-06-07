@@ -308,6 +308,13 @@ header.header {
             font-weight: 600;
             margin: 0 0.5rem;
         }
+        .dk_rahasya_link {
+            display: block;
+            color: $mainPink;
+            i {
+                font-size: 1.5rem;
+            }
+        }
     }
     .dk_headersocial {
         position: absolute;
