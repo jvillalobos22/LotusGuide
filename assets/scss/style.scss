@@ -307,12 +307,13 @@ header.header {
             color: #333;
             font-weight: 600;
             margin: 0 0.5rem;
+            text-align: right;
         }
         .dk_rahasya_link {
             display: block;
             color: $mainPink;
             i {
-                font-size: 1.5rem;
+                font-size: 1.25rem;
             }
         }
     }
@@ -398,6 +399,12 @@ header.header {
     }
 }
 
+.dropdown.menu.medium-horizontal > li.opens-right > .is-dropdown-submenu {
+    &.js-dropdown-active {
+        position: absolute;
+        z-index: 100;
+    }
+}
 /*==============================================================================
   	#Off Canvas Nav
 ==============================================================================*/
@@ -1161,6 +1168,11 @@ header.header {
             margin-bottom: 1.25rem;
             .dk_yelp {
                 margin-right: 0;
+            }
+        }
+        .dk_headerphone {
+            a {
+                text-align: center;
             }
         }
     }

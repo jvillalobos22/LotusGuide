@@ -49,16 +49,15 @@
 				<header class="header" role="banner">
                     <?php
                     $post_type = get_post_type();
-                    // ear
-                    echo '<code>Post Type = '.$post_type.'</code>';
-                    echo '<code>$post->ID = '.$post->ID.'</code>';
+                    // echo '<code>Post Type = '.$post_type.'</code>';
+                    // echo '<code>$post->ID = '.$post->ID.'</code>';
                     ?>
                     <div class="row dk_header_row">
                         <div class="dk_logo"><a href="<?php echo get_home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-guide-logo.png" alt="Lotus Guide Logo"></a></div>
                         <div class="dk_header_contact">
                             <div class="dk_headerphone">
                                 <a href="tel:+15308948433">530-894-8433</a> | <a href="tel:+15308948433">530-89-GUIDE</a>
-                                <a class="dk_rahasya_link" href="<?php echo esc_url( get_page_link( 618 ) ); ?>"><i class="fa fa-bullhorn" aria-hidden="true"></i> Rahasya Uncensored</a>
+                                <a class="dk_rahasya_link" href="<?php echo esc_url( get_page_link( 618 ) ); ?>">Rahasya Uncensored <i class="fa fa-bullhorn" aria-hidden="true"></i></a>
                             </div>
                             <div class="dk_headersocial">
                                 <a class="dk_facebook" href="<?php echo get_option('facebook_link') ?>" target="_blank">
