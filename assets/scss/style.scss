@@ -94,6 +94,7 @@ CSS file.
     #Blog Article page - single.php, parts/loop-single.php
     #Pick Up Locations Template
     #Search Results Template
+    #Events Calenndar Styles
     #Footer
 	#Media Queries
 ==============================================================================*/
@@ -193,7 +194,7 @@ h1 {
 /*==============================================================================
   	#Button Styles
 ==============================================================================*/
-.dk_btn {
+.dk_btn, .tribe_community_edit .tribe-button, input#wp-submit.button.button-primary, .tribe_community_list .tribe-button.tribe-button-primary {
     display: inline-block;
     text-transform: uppercase;
     padding: 0.5rem 0.925rem;
@@ -215,6 +216,26 @@ h1 {
         box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
         background-color: darken($dkRed, 12%);
         color: #fff;
+    }
+}
+
+.tribe_community_edit .tribe-button,  .tribe_community_edit .tribe-button.submit, .tribe_community_list .tribe-button.tribe-button-primary {
+    font-family: $body-font-family;
+    font-weight: 300;
+    border-radius: 0;
+
+    &.events-community-submit {
+        display: block;
+        width: 100%;
+        padding: 1rem 0;
+    }
+}
+
+input#wp-submit.button.button-primary {
+    background-color: $mainPink;
+
+    &:hover {
+        background-color: darken($mainPink, 10%);
     }
 }
 
@@ -544,6 +565,43 @@ header.header {
     .dk_newsletter_legal {
         font-size: 0.75rem;
         color: #a3a3a3;
+    }
+}
+.dk_featured_event {
+    position: relative;
+    h5 {
+        color: $mainTeal;
+        margin-bottom: 0;
+    }
+    h6 {
+        display: inline-block;
+        margin-top: 0;
+        padding: 0.25rem 0.5rem;
+        background-color: $mainPink;
+        color: #fff;
+    }
+    .dk_eventdate {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: center;
+        border: 1px solid $mainPink;
+        .month {
+            display: block;
+            background-color: $mainPink;
+            color: #fff;
+            padding: 0 12px;
+            font-size: 1rem;
+        }
+        .day {
+            color: $mainPink;
+            font-size: 1.25rem;
+        }
+    }
+    .time {
+        display: block;
+        color: $mainPink;
+        margin-bottom: 0.75rem;
     }
 }
 .dk_searchbar {
@@ -1041,7 +1099,7 @@ header.header {
 /*==============================================================================
   	#Contact Form Styles
 ==============================================================================*/
-.dk_submit_btn {
+.dk_submit_btn, .tribe_community_edit .tribe-button.submit {
     font-family: $body-font-family;
     display: inline-block;
     text-transform: uppercase;
@@ -1069,7 +1127,32 @@ header.header {
         color: #fff;
     }
 }
+/*==============================================================================
+  	#Events Calendar Styles
+==============================================================================*/
+.dk_secondarypage #main .dk_maincontent {
+    &#tribe-events-pg-template {
+        padding-left: 0;
+    }
+}
 
+#tribe-events .tribe-events-button, #tribe-events .tribe-events-button:hover, #tribe_events_filters_wrapper input[type=submit], .tribe-events-button, .tribe-events-button.tribe-active:hover, .tribe-events-button.tribe-inactive, .tribe-events-button:hover, .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-], .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-]>a {
+    background-color: $mainPink;
+}
+
+#tribe-events-content .tribe-events-tooltip h4 {
+    color: $mainTeal;
+}
+
+.dk_maincontent.tribe-events-pg-template {
+    position: relative;
+
+    .dk_loginbtn {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
 /*==============================================================================
   	#Footer
 ==============================================================================*/

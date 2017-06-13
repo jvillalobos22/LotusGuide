@@ -53,9 +53,12 @@ function dk_custom_sidebar_settings() {
 	register_setting( 'dk-sidebar-settings-group', 'default_sidebar_featured_biz_image');
 	register_setting( 'dk-sidebar-settings-group', 'default_sidebar_featured_biz_name');
 	register_setting( 'dk-sidebar-settings-group', 'default_sidebar_featured_biz_link');
+	register_setting( 'dk-sidebar-settings-group', 'featured_business_slug');
+
 	// Register Settings Section
 	add_settings_section( 'dk-sidebar-options', 'Edit Widget Content', 'dk_sidebar_settings', 'dk_sidebar_options');
 	add_settings_section( 'dk-default-sidebar-options', 'Edit Default Sidebar', 'dk_default_sidebar_settings', 'dk_sidebar_options');
+	add_settings_section( 'dk-featured-event-options', 'Featured Event', 'dk_featured_event_options', 'dk_sidebar_options');
 
 	// Register Settings Fields
     add_settings_field( 'recent_issue_img', 'Recent Issue Image', 'dk_recent_issue_img', 'dk_sidebar_options', 'dk-sidebar-options' );
@@ -72,14 +75,20 @@ function dk_custom_sidebar_settings() {
 
 	add_settings_field( 'default-sidebar-featured-biz', 'Default Sidebar Featured Business', 'dk_default_sidebar_featured_biz', 'dk_sidebar_options', 'dk-default-sidebar-options' );
 	add_settings_field( 'default-sidebar-recent-issue', 'Default Sidebar Widgets', 'dk_default_sidebar', 'dk_sidebar_options', 'dk-default-sidebar-options' );
+	add_settings_field( 'featured-event-slug', 'Featured Event Slug', 'dk_featured_slug', 'dk_sidebar_options', 'dk-featured-event-options' );
+
 }
 
 function dk_sidebar_settings() {
-	echo 'A few options used to updated/edit content in the sidebar widgets.';
+	echo '<p style="max-width: 800px">A few options used to updated/edit content in the sidebar widgets.</p>';
 }
 
 function dk_default_sidebar_settings() {
-	echo 'You can set which widgets will show up on any default pages that cannot be set individually such as search results pages and event pages';
+	echo '<p style="max-width: 800px">You can set which widgets will show up on any default pages that cannot be set individually such as search results pages and event pages</p>';
+}
+
+function dk_featured_event_options() {
+	echo '<p style="max-width: 800px">The featured business slug can be found by navigating to the page of the event you wish to feature. From the single event page, look at the url and the last part of the url will be the slug. For example, if the event url was <code>http://lotusguide.com/event/cool-june-event/</code> then the slug would be <code>cool-june-event</code></p>';
 }
 
 function dk_recent_issue_img() {
@@ -232,6 +241,11 @@ function dk_default_sidebar() {
 	}
 	echo 'Testimonials</label>';
 
+}
+
+function dk_featured_slug() {
+	$featuredEventSlug = esc_attr( get_option( 'featured_business_slug' ) );
+	echo '<input type="text" name="featured_business_slug" value="'.$featuredEventSlug.'" placeholder="ex: super-cool-event">';
 }
 
 function dk_sidebar_create_page() {

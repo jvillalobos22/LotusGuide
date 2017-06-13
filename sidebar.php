@@ -1,9 +1,22 @@
 <?php
 $post_type = get_post_type();
 global $template;
+global $post;
+
+$url      = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$url_path = parse_url( $url, PHP_URL_PATH );
+$slug = pathinfo( $url_path, PATHINFO_BASENAME );
+
 $pageTemplate = basename($template);
-//echo '<code>$pageTemplate = '.$pageTemplate.'</code>';
-if($pageTemplate == 'search.php' || $pageTemplate == 'page.php') {
+// echo '<code>$pageTemplate = '.$pageTemplate.'</code>';
+// echo '<code>$post_slug = '.$url_path.'</code>';
+if($pageTemplate == 'search.php' || $pageTemplate == 'page.php' || $pageTemplate == 'default-template.php') {
+	if(strpos($url_path, 'event') !== false) {
+		// This is an events page
+		// Place featured event
+		$featuredEventWidget = TRUE;
+		$featuredEventSlug = esc_attr( get_option( 'featured_business_slug' ) );
+	} else { $featuredEventWidget = FALSE; }
 	// get default sidebar
 	$featuredBusinessWidget = esc_attr( get_option( 'default_sidebar_featured_biz' ) );
 	$featuredBusinessImage = esc_attr( get_option( 'default_sidebar_featured_biz_image' ) );
@@ -62,6 +75,39 @@ if($pageTemplate == 'search.php' || $pageTemplate == 'page.php') {
 		<h4><?php echo $featuredBusinessName; ?></h4>
 	</a>
 	<?php } ?>
+	<!-- Featured Event Module -->
+	<?php if($featuredEventWidget) { ?>
+		<h3 class="dk_heading">Featured Event</h3>
+		<?php
+		// $post_id = 799;
+		if ( $post = get_page_by_path( $featuredEventSlug, OBJECT, 'tribe_events' ) ) {
+	    	$post_id = $post->ID;
+			$queried_post = get_post($post_id);
+			// $postType = $queried_post->post_type;
+			// echo '<code>'.$postType.'</code>';
+			$title = $queried_post->post_title;
+			$link = get_permalink( $post_id );
+			$content = $queried_post->post_content;
+			$showEvent = TRUE;
+		} else {
+	    	$id = 0;
+			$showEvent = FALSE;
+		}
+		if($showEvent) { ?>
+		<div class="dk_featured_event">
+			<h5><strong><?php echo $title; ?></strong></h5>
+			<!-- <h6><?php echo tribe_get_start_date( $queried_post ); ?></h6> -->
+			<div class="dk_eventdate">
+				<span class="month"><?php echo tribe_get_start_date( $queried_post, FALSE, 'M' ); ?></span>
+				<span class="day"><?php echo tribe_get_start_date( $queried_post, FALSE, 'j' ); ?></span>
+			</div>
+			<span class="time"><?php echo tribe_get_start_time( $queried_post ); ?></span>
+			<p><?php echo $content; ?></p>
+			<a class="dk_btn" href="<?php echo $link; ?>">Learn More</a>
+		</div>
+		<?php }
+	} ?>
+
 	<!-- Recent Issue Module -->
 	<?php if($recentIssue) { ?>
 	<h3 class="dk_heading">Recent Issue</h3>
