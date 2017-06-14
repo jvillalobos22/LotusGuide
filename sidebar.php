@@ -111,13 +111,15 @@ if($pageTemplate == 'search.php' || $pageTemplate == 'page.php' || $pageTemplate
 	<!-- Recent Issue Module -->
 	<?php if($recentIssue) { ?>
 	<h3 class="dk_heading">Recent Issue</h3>
-	<a href="<?php echo get_option('recent_issue_link') ?>">
+	<!-- <a href="<?php echo get_option('recent_issue_link') ?>">
 		<?php if(get_option('recent_issue_img')) { ?>
 			<img src="<?php echo get_option('recent_issue_img'); ?>" alt="Recent Issue of the Lotus Guide">
 		<?php } else { ?>
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/homepage-flipbook-placeholder.jpg" alt="Recent Issue of the Lotus Guide">
 		<?php } ?>
-	</a>
+	</a> -->
+	<div data-configid="3152707/47108743" style="width:100%; height:325px;" class="issuuembed"></div>
+	<script type="text/javascript" src="//e.issuu.com/embed.js" async="true"></script>
 	<?php } ?>
 	<!-- About Module -->
 	<?php if($aboutWidget) { ?>
@@ -214,9 +216,19 @@ if($pageTemplate == 'search.php' || $pageTemplate == 'page.php' || $pageTemplate
 	<!-- Upcoming Events Module -->
 	<?php if($upcomingEvents) { ?>
 	<h3 class="dk_heading">Upcoming Events</h3>
-	<p><strong>February 14, 2017</strong><br>Valentine's Dinner at The Elk's Lodge</p>
-	<p><strong>February 14, 2017</strong><br>Valentine's Dinner at The Elk's Lodge</p>
-	<a class="dk_btn" href="#">View the Calendar</a>
+		<?php // Ensure the global $post variable is in scope
+		global $post;
+		// Retrieve the next 3 upcoming events
+		$events = tribe_get_events( array(
+		    'posts_per_page' => 3,
+		) );
+		// Loop through the events: set up each one as the current post then use
+		// template tags to display the title and content
+		foreach ( $events as $post ) {
+			setup_postdata( $post ); ?>
+			<p><strong><?php echo tribe_get_start_date( $post ); ?></strong><br><?php echo "$post->post_title"; ?></p>
+		<?php } ?>
+	<a class="dk_btn" href="<?php echo get_site_url(); ?>/events">View the Calendar</a>
 	<?php } ?>
 
 </div>

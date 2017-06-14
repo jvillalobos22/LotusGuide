@@ -135,6 +135,13 @@ body {
     background-attachment: fixed;
 }
 
+.dk_bodylotus {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
 .dk_clearfix {
     clear: both;
 }
@@ -491,7 +498,7 @@ header.header {
   	#Content Area
 ==============================================================================*/
 #content .row {
-    background-color: #fff;
+    background-color: #fff; //rgba(255,255,255,0.9); 
 }
 
 .dk_subheading {

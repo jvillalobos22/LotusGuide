@@ -38,6 +38,7 @@
 			<?php get_template_part( 'parts/content', 'offcanvas' ); ?>
 
 			<div class="off-canvas-content" data-off-canvas-content>
+                <!-- <img class="dk_bodylotus" src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-transparent.png" alt="Lotus Guide Logo"> -->
                 <?php
                 global $post;
 
