@@ -107,7 +107,7 @@ Template Name: Homepage Template
 						</div>
 						<div class="dk_home_adbanners">
 							<a href="<?php echo $bannerAdOneLink; ?>" target="_blank"><img src="<?php echo $bannerAdOne; ?>" alt="<?php echo $bannerAdOneAlt; ?>"></a>
-							<div class="dk_home_testimonial" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/homepage-testimonial-stock.jpg);">
+							<div class="dk_home_testimonial" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/homepage-testimonial-bg.jpg);">
 								<div class="dk_caption">
 									<h4><?php echo $testimonialHeading; ?></h4>
 									<p>&ldquo;<?php echo $testimonialQuote; ?>&ldquo;</p>

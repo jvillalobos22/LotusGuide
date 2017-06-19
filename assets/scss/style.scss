@@ -498,7 +498,7 @@ header.header {
   	#Content Area
 ==============================================================================*/
 #content .row {
-    background-color: #fff; //rgba(255,255,255,0.9); 
+    background-color: #fff; //rgba(255,255,255,0.9);
 }
 
 .dk_subheading {
@@ -1207,6 +1207,9 @@ header.header {
                 padding-right: 1.375rem;
             }
         }
+    }
+    .dk_homecallouts .dk_callout {
+        width: 100%;
     }
 }
 
