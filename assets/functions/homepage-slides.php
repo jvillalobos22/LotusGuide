@@ -92,6 +92,10 @@ function show_slides_meta_box() {
 			<input type="button" class="button image-upload" value="Browse">
 		</div>
 		<div>
+			<label for="slides[link]">Image Link</label><br><small>This is a url that the slide will link to. Should be full URL (ex: https://www.dkwebdesign.com).</small><br>
+			<input type="text" name="slides[link]" id="slides[link]" class="regular-text" value="<?php if ( isset ( $meta['link'] ) ) echo $meta['link']; ?>">
+		</div>
+		<div>
 			<label for="slides[alt]">Image Alt Tag</label><br><small>Provide a brief description of the image. This is important for accesibility and SEO purposes.</small><br>
 			<input type="text" name="slides[alt]" id="slides[alt]" class="regular-text" value="<?php if ( isset ( $meta['alt'] ) ) echo $meta['alt']; ?>">
 		</div>

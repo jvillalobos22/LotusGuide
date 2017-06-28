@@ -28,7 +28,13 @@ Template Name: Homepage Template
 						$meta = get_post_meta( $post->ID, 'slides', true );
 					?>
 					<li class="dk_slide">
-						<img src="<?php echo $meta['image']; ?>" alt="<?php echo $meta['alt']; ?>">
+						<?php if ($meta['link']) { ?>
+							<a href="<?php echo $meta['link']; ?>" target="_blank">
+								<img src="<?php echo $meta['image']; ?>" alt="<?php echo $meta['alt']; ?>">
+							</a>
+						<?php } else { ?>
+							<img src="<?php echo $meta['image']; ?>" alt="<?php echo $meta['alt']; ?>">
+						<?php } ?>
 					</li>
 					<?php endwhile; ?>
 				</ul>
