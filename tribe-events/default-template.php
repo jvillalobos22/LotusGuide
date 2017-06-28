@@ -34,7 +34,7 @@ get_header();
 					<a class="dk_btn dk_loginbtn" href="<?php echo wp_login_url( $url ); ?>">Login / Register</a>
 					<?php } ?>
 				<?php } ?>
-				<h1 class="page-title">Community <span>Events</span></h1>
+				<h1 class="page-title">Calendar of <span>Events</span></h1>
 				<?php if($slug == 'events') { ?>
 					<p style="margin-top: 1rem;">Our Calendar of Events covers the North Valley area of California, Chico, Paradise, Mt Shasta, Grass Valley, Nevada City, Redding, Red Bluff, etc. This Calendar is for events and services like health fairs, psychic fairs, massage training’s, music events, meditation classes and workshops, etc.</p>
 					<?php if(!is_user_logged_in()) {// not logged in ?>

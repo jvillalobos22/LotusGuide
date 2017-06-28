@@ -50,6 +50,7 @@ require_once(get_template_directory().'/assets/functions/social-media-settings.p
 
 // Custom Shortcodes
 require_once(get_template_directory().'/assets/functions/dk-shortcodes.php');
+require_once(get_template_directory().'/assets/functions/user-redirects.php');
 
 // Customize the WordPress login menu
 require_once(get_template_directory().'/assets/functions/login.php');
@@ -60,7 +61,7 @@ require_once(get_template_directory().'/assets/functions/admin.php');
 // Custom Logo on Login/Register Screen
 function my_login_logo() { ?>
     <style type="text/css">
-        
+
     </style>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );

@@ -891,7 +891,7 @@ header.header {
     }
     .dk_business_details {
         position: absolute;
-        right: 0;
+        right: 0.9375rem;
         top: 1rem;
         text-align: right;
         a {
@@ -968,10 +968,12 @@ header.header {
 
 .dk_featuredlistings {
     position: relative;
-    border-left: 5px solid $mainTeal;
-    border-top: 5px solid $mainTeal;
-    border-bottom: 5px solid $mainTeal;
+    border: 5px solid $mainTeal;
+    // border-left: 5px solid $mainTeal;
+    // border-top: 5px solid $mainTeal;
+    // border-bottom: 5px solid $mainTeal;
     margin-bottom: 1.5rem;
+
     .dk_featured_tag {
         position: absolute;
         top: -13px;
@@ -985,6 +987,14 @@ header.header {
     }
     .dk_business_listing {
         padding-left: 1rem;
+
+        .row {
+            width: 100%;
+        }
+
+        &~ .dk_business_listing {
+            border-top: 2px solid $mainTeal;
+        }
     }
 }
 /*==============================================================================

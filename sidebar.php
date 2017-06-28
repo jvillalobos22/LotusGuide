@@ -141,7 +141,7 @@ if($pageTemplate == 'search.php' || $pageTemplate == 'page.php' || $pageTemplate
 	<?php } ?>
 	<!-- Newsletter Module -->
 	<?php if($newsletter) { ?>
-	<h3 class="dk_heading">Newsletter</h3>
+	<h3 class="dk_heading">Community Email</h3>
 	<!--<p><?php //echo get_option('newsletter_text') ?> <a href="<?php //echo get_option('newsletter_link_url') ?>"><?php //echo get_option('newsletter_link_text') ?></a></p>-->
 	<!--Begin CTCT Sign-Up Form-->
 	<!-- EFD 1.0.0 [Mon May 08 17:59:51 EDT 2017] -->
