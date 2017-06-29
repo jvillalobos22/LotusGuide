@@ -11,7 +11,7 @@
 					// If we are showing the loop for listing categories
 					get_template_part( 'parts/loop', 'listing-category');
 				} else { ?>
-					<header>
+					<header style="margin-bottom: 1.5rem;">
 						<h1 class="page-title"><?php the_archive_title();?></h1>
 						<?php the_archive_description('<div class="taxonomy-description">', '</div>');?>
 					</header>

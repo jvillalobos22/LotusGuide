@@ -41,8 +41,8 @@ $listingTags = get_the_tags();
             <a class="dk_webaddress" href="<?php echo $listingWebsite; ?>" target="_blank"><?php echo $websitePretty; ?></a>
             <address><?php echo $listingAddress; ?></address>
             <div class="dk_business_details">
-                <a href="tel:+1<?php echo $cleanPhone; ?>"><?php echo $listingPhone; ?></a>
                 <a href="mailto:<?php echo $listingEmail; ?>"><?php echo $listingEmail; ?></a>
+                <a href="tel:+1<?php echo $cleanPhone; ?>"><?php echo $listingPhone; ?></a>
                 <div class="dk_social">
                     <?php if($listingFacebook != '') { ?>
                         <a class="dk_facebook" href="<?php echo $listingFacebook; ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>

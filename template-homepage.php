@@ -118,7 +118,7 @@ Template Name: Homepage Template
 									<h4><?php echo $testimonialHeading; ?></h4>
 									<p>&ldquo;<?php echo $testimonialQuote; ?>&ldquo;</p>
 									<p><strong><?php echo $testimonialName; ?></strong></p>
-									<a href="<?php echo $testimonialButton; ?>" class="dk_btn" style="margin-right: 0;"><?php echo $testimonialButtonText; ?></a>
+									<a href="<?php echo $testimonialButtonLink; ?>" class="dk_btn" style="margin-right: 0;"><?php echo $testimonialButtonText; ?></a>
 								</div>
 							</div>
 							<a href="<?php echo $bannerAdTwoLink; ?>" target="_blank"><img src="<?php echo $bannerAdTwo; ?>" alt="<?php echo $bannerAdTwoAlt; ?>"></a>

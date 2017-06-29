@@ -27,6 +27,7 @@ get_header();
 		<main id="main" class="large-9 medium-8 small-12 columns" role="main">
 
 			<div id="tribe-events-pg-template" class="dk_maincontent tribe-events-pg-template">
+				<h1 class="page-title">Calendar of <span>Events</span></h1>
 				<?php if( is_user_logged_in() ) {// logged in ?>
 					<a class="dk_btn dk_loginbtn" href="<?php echo wp_logout_url( $url ); ?>">Logout</a>
 				<?php } else {// not logged in ?>
@@ -34,7 +35,6 @@ get_header();
 					<a class="dk_btn dk_loginbtn" href="<?php echo wp_login_url( $url ); ?>">Login / Register</a>
 					<?php } ?>
 				<?php } ?>
-				<h1 class="page-title">Calendar of <span>Events</span></h1>
 				<?php if($slug == 'events') { ?>
 					<p style="margin-top: 1rem;">Our Calendar of Events covers the North Valley area of California, Chico, Paradise, Mt Shasta, Grass Valley, Nevada City, Redding, Red Bluff, etc. This Calendar is for events and services like health fairs, psychic fairs, massage training’s, music events, meditation classes and workshops, etc.</p>
 					<?php if(!is_user_logged_in()) {// not logged in ?>

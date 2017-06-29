@@ -45,7 +45,7 @@
 
 ?>
 <div class="dk_listingcat">
-    <h1><?php echo $preTitle; ?><span><?php echo $postTitle; ?></h1>
+    <h1><?php echo $preTitle; ?><span><?php echo $postTitle; ?></span></h1>
     <div class="dk_listingcat_description">
         <img class="dk_listingcat_img" src="<?php echo $listingCatImg; ?>" alt="<?php echo $listingCatAlt; ?>">
         <?php echo $listingCatDesc ?>
