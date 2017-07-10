@@ -15,6 +15,8 @@
 		<script>
 			jQuery(document).ready(function($) {
 				$('.dk_homeslider').unslider({
+					// animation: 'vertical',
+					infinite: true,
 					autoplay: true,
 					delay: 6000,
 					nav: true,
