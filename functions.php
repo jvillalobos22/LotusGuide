@@ -58,10 +58,23 @@ require_once(get_template_directory().'/assets/functions/login.php');
 // Customize the WordPress admin
 require_once(get_template_directory().'/assets/functions/admin.php');
 
-// Custom Logo on Login/Register Screen
-function my_login_logo() { ?>
-    <style type="text/css">
-
-    </style>
-<?php }
-add_action( 'login_enqueue_scripts', 'my_login_logo' );
+// Change Order of Admin Menu
+function reorder_admin_menu( $__return_true ) {
+    return array(
+         'index.php', // Dashboard
+         'edit.php?post_type=page', // Pages
+         'edit.php', // Posts
+         'edit.php?post_type=business_listing', // Business Listings
+         'edit.php?post_type=pickup_location', // Pickup Locations
+         'edit.php?post_type=tribe_events', // Events
+         'edit.php?post_type=homepage_slide', // Homepage Slides
+         'edit.php?post_type=ad_testimonial', // Ad Testimonials
+         'admin.php?page=dk_sidebar_options', // Sidebar Options
+         'admin.php?page=wpcf7', // Contact
+         'admin.php?page=tablepress', // TablePress
+         'admin.php?page=dk_social_options', // Social Media
+         'separator1', // --Space--
+   );
+}
+add_filter( 'custom_menu_order', 'reorder_admin_menu' );
+add_filter( 'menu_order', 'reorder_admin_menu' );

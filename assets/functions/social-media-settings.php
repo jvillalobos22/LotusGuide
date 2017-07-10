@@ -19,7 +19,7 @@
 function dk_add_social_page() {
 
 	// Generate Social Media Options Page
-	add_menu_page( 'Social Media', 'Social Media', 'manage_options', 'dk_social_options', 'dk_social_create_page', 'dashicons-share' , 110 );
+	add_menu_page( 'Social Media', 'Social Media', 'manage_options', 'dk_social_options', 'dk_social_create_page', 'dashicons-share' , 6 );
 
 	//Activate custom settings
 	add_action( 'admin_init', 'dk_custom_social_settings');

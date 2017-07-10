@@ -19,7 +19,7 @@
 function dk_add_sidebar_page() {
 
 	// Generate DK Options Page
-	add_menu_page( 'Sidebar Options', 'Sidebar Options', 'manage_options', 'dk_sidebar_options', 'dk_sidebar_create_page', 'dashicons-admin-generic' , 110 );
+	add_menu_page( 'Sidebar Options', 'Sidebar Options', 'manage_options', 'dk_sidebar_options', 'dk_sidebar_create_page', 'dashicons-admin-generic' , 5 );
 
 	//Activate custom settings
 	add_action( 'admin_init', 'dk_custom_sidebar_settings');
