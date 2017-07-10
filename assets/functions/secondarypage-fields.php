@@ -21,13 +21,16 @@ function add_secpage_meta_box() {
 
     if(!empty($post)) {
         $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
-
-        if($pageTemplate == 'template-secondary.php' ||
+        /*
+           if ($pageTemplate == 'template-secondary.php' ||
            $pageTemplate == 'template-secondary-fullwidth.php' ||
            $pageTemplate == 'template-ad-testimonials.php' ||
            $pageTemplate == 'template-business-directory.php' ||
            $pageTemplate == 'template-blog.php' ||
-           $pageTemplate == 'template-pickup-locations-index.php' ) {
+           $pageTemplate == 'template-pickup-locations-index.php' ||
+           $pageTemplate == 'page.php')
+           */
+        if($pageTemplate != 'template-homepage.php') {
             add_meta_box(
         		'secpage_meta_box', // $id
         		'Secondary Page Template Fields', // $title

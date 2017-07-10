@@ -22,7 +22,7 @@ function add_sidebar_meta_box() {
     if(!empty($post)) {
         $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
         $post_type = get_post_type();
-        if( $pageTemplate != 'template-secondary-fullwidth.php' && $pageTemplate != 'template-ad-testimonials.php' ) {
+        if( $pageTemplate != 'template-secondary-fullwidth.php' && $pageTemplate != 'template-ad-testimonials.php' && $pageTemplate != 'default') {
             add_meta_box(
         		'sidebar_meta_box', // $id
         		'Sidebar Fields', // $title
