@@ -518,6 +518,16 @@ header.header {
                     }
                 }
             }
+            .is-submenu-item {
+                a {
+                    font-weight: normal;
+                }
+                &.active {
+                    a {
+                        font-weight: bold;
+                    }
+                }
+            }
         }
     }
     ul.menu.submenu {
@@ -553,6 +563,7 @@ header.header {
     }
     .dk_btn {
         margin-right: 1rem;
+        margin-bottom: 1rem;
     }
     img.alignleft {
         float: left;
@@ -1261,6 +1272,14 @@ header.header {
     }
     .dk_homecallouts .dk_callout {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .dk_businessdirectory {
+        ul.accordion {
+            margin-bottom: 0;
+        }
     }
 }
 

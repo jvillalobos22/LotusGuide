@@ -50,7 +50,7 @@ if($pageTemplate == 'search.php' || $pageTemplate == 'page.php' || $pageTemplate
 		$featuredBusinessImage = $sidebarMeta['featured-business-image'];
 		$featuredBusinessName = $sidebarMeta['featured-business-name'];
 		$featuredBusinessLink = $sidebarMeta['featured-business-link'];
-		
+
 		$recentIssue = $sidebarMeta['recent-issue-widget'];
 		$aboutWidget = $sidebarMeta['about-widget'];
 		$advertiseWidget = $sidebarMeta['advertise-widget'];
@@ -93,7 +93,6 @@ if($pageTemplate == 'search.php' || $pageTemplate == 'page.php' || $pageTemplate
 	<?php } ?>
 	<!-- Featured Event Module -->
 	<?php if($featuredEventWidget) { ?>
-		<h3 class="dk_heading">Featured Event</h3>
 		<?php
 		// $post_id = 799;
 		if ( $post = get_page_by_path( $featuredEventSlug, OBJECT, 'tribe_events' ) ) {
@@ -110,6 +109,7 @@ if($pageTemplate == 'search.php' || $pageTemplate == 'page.php' || $pageTemplate
 			$showEvent = FALSE;
 		}
 		if($showEvent) { ?>
+		<h3 class="dk_heading">Featured Event</h3>
 		<div class="dk_featured_event">
 			<h5><strong><?php echo $title; ?></strong></h5>
 			<!-- <h6><?php echo tribe_get_start_date( $queried_post ); ?></h6> -->
@@ -231,20 +231,24 @@ if($pageTemplate == 'search.php' || $pageTemplate == 'page.php' || $pageTemplate
 	<?php } ?>
 	<!-- Upcoming Events Module -->
 	<?php if($upcomingEvents) { ?>
-	<h3 class="dk_heading">Upcoming Events</h3>
+		<h3 class="dk_heading">Upcoming Events</h3>
 		<?php // Ensure the global $post variable is in scope
 		global $post;
 		// Retrieve the next 3 upcoming events
 		$events = tribe_get_events( array(
 		    'posts_per_page' => 3,
 		) );
-		// Loop through the events: set up each one as the current post then use
-		// template tags to display the title and content
-		foreach ( $events as $post ) {
-			setup_postdata( $post ); ?>
-			<p><strong><?php echo tribe_get_start_date( $post ); ?></strong><br><?php echo "$post->post_title"; ?></p>
-		<?php } ?>
-	<a class="dk_btn" href="<?php echo get_site_url(); ?>/events">View the Calendar</a>
+		if(count($events) > 1) {
+			// Loop through the events: set up each one as the current post then use
+			// template tags to display the title and content
+			foreach ( $events as $post ) {
+				setup_postdata( $post ); ?>
+				<p><strong><?php echo tribe_get_start_date( $post ); ?></strong><br><?php echo "$post->post_title"; ?></p>
+			<?php }
+		} else { // If there are no events
+			echo '<p>No Upcoming Events</p>';
+		} ?>
+		<a class="dk_btn" href="<?php echo get_site_url(); ?>/events">View the Calendar</a>
 	<?php } ?>
 
 </div>
