@@ -29,8 +29,8 @@ add_action( 'admin_menu', 'dk_add_sidebar_page');
 
 function dk_custom_sidebar_settings() {
 	// Register Settings
-    register_setting( 'dk-sidebar-settings-group', 'recent_issue_img');
-	register_setting( 'dk-sidebar-settings-group', 'recent_issue_link');
+	register_setting( 'dk-sidebar-settings-group', 'recent_issue_embed');
+	// register_setting( 'dk-sidebar-settings-group', 'recent_issue_link');
 	register_setting( 'dk-sidebar-settings-group', 'about_text');
     register_setting( 'dk-sidebar-settings-group', 'about_link_url');
 	register_setting( 'dk-sidebar-settings-group', 'advertise_text');
@@ -61,8 +61,8 @@ function dk_custom_sidebar_settings() {
 	add_settings_section( 'dk-featured-event-options', 'Featured Event', 'dk_featured_event_options', 'dk_sidebar_options');
 
 	// Register Settings Fields
-    add_settings_field( 'recent_issue_img', 'Recent Issue Image', 'dk_recent_issue_img', 'dk_sidebar_options', 'dk-sidebar-options' );
-	add_settings_field( 'recent-issue-link', 'Recent Issue Link URL', 'dk_recent_issue_link', 'dk_sidebar_options', 'dk-sidebar-options' );
+    add_settings_field( 'recent_issue_embed', 'Recent Issue Embed', 'dk_recent_issue_embed', 'dk_sidebar_options', 'dk-sidebar-options' );
+	// add_settings_field( 'recent-issue-link', 'Recent Issue Link URL', 'dk_recent_issue_link', 'dk_sidebar_options', 'dk-sidebar-options' );
 	add_settings_field( 'about-text', 'About Text', 'dk_about_text', 'dk_sidebar_options', 'dk-sidebar-options' );
 	add_settings_field( 'about-link-url', 'About Link URL', 'dk_about_link_url', 'dk_sidebar_options', 'dk-sidebar-options' );
 	add_settings_field( 'advertise-text', 'Advertise Text', 'dk_advertise_text', 'dk_sidebar_options', 'dk-sidebar-options' );
@@ -91,15 +91,15 @@ function dk_featured_event_options() {
 	echo '<p style="max-width: 800px">The featured business slug can be found by navigating to the page of the event you wish to feature. From the single event page, look at the url and the last part of the url will be the slug. For example, if the event url was <code>http://lotusguide.com/event/cool-june-event/</code> then the slug would be <code>cool-june-event</code></p>';
 }
 
-function dk_recent_issue_img() {
-	$recentIssueImg = esc_attr( get_option( 'recent_issue_img' ) );
-    echo '<input type="text" name="recent_issue_img" value="'.$recentIssueImg.'" placeholder="Recent Issue Image URL">';
+function dk_recent_issue_embed() {
+	$recentIssueEmbed = esc_attr( get_option( 'recent_issue_embed' ) );
+    echo '<textarea rows="4" name="recent_issue_embed" placeholder="Recent Issue Embed">'.$recentIssueEmbed.'</textarea>';
 }
 
-function dk_recent_issue_link() {
-	$recentIssue = esc_attr( get_option( 'recent_issue_link' ) );
-	echo '<input type="text" name="recent_issue_link" value="'.$recentIssue.'" placeholder="Recent Issue Link">';
-}
+// function dk_recent_issue_link() {
+// 	$recentIssue = esc_attr( get_option( 'recent_issue_link' ) );
+// 	echo '<input type="text" name="recent_issue_link" value="'.$recentIssue.'" placeholder="Recent Issue Link">';
+// }
 
 function dk_about_text() {
 	$aboutText = esc_attr( get_option( 'about_text' ) );

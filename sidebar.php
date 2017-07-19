@@ -127,15 +127,13 @@ if($pageTemplate == 'search.php' || $pageTemplate == 'page.php' || $pageTemplate
 	<!-- Recent Issue Module -->
 	<?php if($recentIssue) { ?>
 	<h3 class="dk_heading">Recent Issue</h3>
-	<!-- <a href="<?php echo get_option('recent_issue_link') ?>">
-		<?php if(get_option('recent_issue_img')) { ?>
-			<img src="<?php echo get_option('recent_issue_img'); ?>" alt="Recent Issue of the Lotus Guide">
-		<?php } else { ?>
-			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/homepage-flipbook-placeholder.jpg" alt="Recent Issue of the Lotus Guide">
-		<?php } ?>
-	</a> -->
-	<div data-configid="3152707/47108743" style="width:100%; height:325px;" class="issuuembed"></div>
-	<script type="text/javascript" src="//e.issuu.com/embed.js" async="true"></script>
+	<?php if(get_option('recent_issue_embed')) { ?>
+		<?php echo get_option('recent_issue_embed'); ?>
+	<?php } else { ?>
+		Nothing Here
+	<?php } ?>
+	<!-- <div data-configid="3152707/47108743" style="width:100%; height:325px;" class="issuuembed"></div>
+	<script type="text/javascript" src="//e.issuu.com/embed.js" async="true"></script> -->
 	<?php } ?>
 	<!-- About Module -->
 	<?php if($aboutWidget) { ?>
@@ -195,7 +193,7 @@ if($pageTemplate == 'search.php' || $pageTemplate == 'page.php' || $pageTemplate
 	   localizedErrMap['generic'] = 		'This field is invalid.';
 	   localizedErrMap['shared'] = 		'Sorry, we could not complete your sign-up. Please contact us to resolve this.';
 	   localizedErrMap['state_mismatch'] = 'Mismatched State/Province and Country.';
-		localizedErrMap['state_province'] = 'Select a state/province';
+	   localizedErrMap['state_province'] = 'Select a state/province';
 	   localizedErrMap['selectcountry'] = 	'Select a country';
 	   var postURL = 'https://visitor2.constantcontact.com/api/signup';
 	</script>
