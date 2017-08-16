@@ -16,19 +16,19 @@ function custom_post_business_listings() {
 	register_post_type( 'business_listing', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 	 	// let's now add all the options for this post type
 		array('labels' => array(
-			'name' => __('Business Listings', 'jointswp'), /* This is the Title of the Group */
-			'singular_name' => __('Business Listing', 'jointswp'), /* This is the individual type */
-			'all_items' => __('All Listings', 'jointswp'), /* the all items menu item */
-			'add_new' => __('Add New', 'jointswp'), /* The add new menu item */
-			'add_new_item' => __('Add New Listing', 'jointswp'), /* Add New Display Title */
-			'edit' => __( 'Edit', 'jointswp' ), /* Edit Dialog */
-			'edit_item' => __('Edit Listings', 'jointswp'), /* Edit Display Title */
-			'new_item' => __('New Listing', 'jointswp'), /* New Display Title */
-			'view_item' => __('View Listing', 'jointswp'), /* View Display Title */
-			'search_items' => __('Search Business Listings', 'jointswp'), /* Search Custom Type Title */
-			'not_found' =>  __('Nothing found in the Database.', 'jointswp'), /* This displays if there are no entries yet */
-			'not_found_in_trash' => __('Nothing found in Trash', 'jointswp'), /* This displays if there is nothing in the trash */
-			'parent_item_colon' => ''
+				'name' => __('Business Listings', 'jointswp'), /* This is the Title of the Group */
+				'singular_name' => __('Business Listing', 'jointswp'), /* This is the individual type */
+				'all_items' => __('All Listings', 'jointswp'), /* the all items menu item */
+				'add_new' => __('Add New', 'jointswp'), /* The add new menu item */
+				'add_new_item' => __('Add New Listing', 'jointswp'), /* Add New Display Title */
+				'edit' => __( 'Edit', 'jointswp' ), /* Edit Dialog */
+				'edit_item' => __('Edit Listings', 'jointswp'), /* Edit Display Title */
+				'new_item' => __('New Listing', 'jointswp'), /* New Display Title */
+				'view_item' => __('View Listing', 'jointswp'), /* View Display Title */
+				'search_items' => __('Search Business Listings', 'jointswp'), /* Search Custom Type Title */
+				'not_found' =>  __('Nothing found in the Database.', 'jointswp'), /* This displays if there are no entries yet */
+				'not_found_in_trash' => __('Nothing found in Trash', 'jointswp'), /* This displays if there is nothing in the trash */
+				'parent_item_colon' => ''
 			), /* end of arrays */
 			'description' => __( 'Each represents a business that is listed under the Business Directory.', 'jointswp' ), /* Custom Type Description */
 			'public' => true,
@@ -40,7 +40,8 @@ function custom_post_business_listings() {
 			'menu_icon' => 'dashicons-id-alt', /* the icon for the custom post type menu. uses built-in dashicons (CSS class name) */
 			'rewrite'	=> array( 'slug' => 'business-listing', 'with_front' => false ), /* you can specify its url slug */
 			'has_archive' => true, /* you can rename the slug here */
-			'capability_type' => 'post',
+			'capability_type' => array('business_listing','business_listings'),
+            'map_meta_cap' => true,
 			'hierarchical ' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
 			'supports' => array( 'title', 'thumbnail', 'revisions')
@@ -73,6 +74,12 @@ register_taxonomy( 'listing-category',
 			'new_item_name' => __( 'New Listing Category Name', 'jointswp' ) /* name title for taxonomy */
 		),
 		'show_admin_column' => true,
+		'capabilities' => array(
+			'manage_terms'=> 'manage_categories',
+			'edit_terms'=> 'manage_categories',
+			'delete_terms'=> 'manage_categories',
+			'assign_terms' => 'read'
+	    ),
 		'show_ui' => true,
 		'query_var' => true,
 		'rewrite' => array( 'slug' => 'listing-category', 'hierarchical' => true )
