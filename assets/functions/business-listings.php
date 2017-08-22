@@ -44,7 +44,7 @@ function custom_post_business_listings() {
             'map_meta_cap' => true,
 			'hierarchical ' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
-			'supports' => array( 'title', 'thumbnail', 'revisions')
+			'supports' => array( 'title', 'thumbnail', 'revisions', 'author')
 	 	) /* end of options */
 	); /* end of register post type */
 

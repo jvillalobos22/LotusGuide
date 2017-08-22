@@ -86,4 +86,18 @@ function dk_filter_business_listing_by_creator( $wp_query_obj ) {
         $wp_query_obj->set('author', $current_user->ID );
 }
 
+// Adds custom role users to select box when assigning authorship
+add_filter('wp_dropdown_users', 'addAuthorsToSelect');
+function addAuthorsToSelect($output) {
+    global $post;
+    if($post->post_type == 'business_listing') {
+        $users = get_users(array('role__in'=>array('dk_business_listing_user','administrator','editor','author')));
+        $output = "<select id='post_author_override' name='post_author_override' class=''>";
+        foreach($users as $user) {
+            $output .= "<option value='".$user->id."' ".(($post->post_author==$user->id)?'selected="selected"':'').">".$user->display_name." (".$user->user_login.")</option>";
+        }
+        $output .= "</select>";
+    }
+    return $output;
+}
 ?>
