@@ -55,9 +55,13 @@ function show_sidebar_meta_box() {
                     <!-- Featured Business Checkbox -->
                     <label class="dk_inline_block">
                     <?php
-                    $checkbox_value = $meta['featured-business-checkbox'];
+                    if(isset($meta['featured-business-checkbox'])) {
+                        $checkbox_value = $meta['featured-business-checkbox'];
+                    } else {
+                        $checkbox_value = "";
+                    }
 
-                    if($meta['featured-business-checkbox'] == "") { ?>
+                    if($checkbox_value == "") { ?>
                             <input name="sidebar[featured-business-checkbox]" type="checkbox" value="true">
                         <?php } else if($checkbox_value == "true") { ?>
                             <input name="sidebar[featured-business-checkbox]" type="checkbox" value="true" checked>
@@ -87,7 +91,11 @@ function show_sidebar_meta_box() {
                 <!-- Recent Issue Checkbox -->
                 <label>
                 <?php
-                $checkbox_value = $meta['recent-issue-widget'];
+                if(isset($meta['recent-issue-widget'])) {
+                    $checkbox_value = $meta['recent-issue-widget'];
+                } else {
+                    $checkbox_value = "";
+                }
 
                 if($checkbox_value == "") { ?>
                         <input name="sidebar[recent-issue-widget]" type="checkbox" value="true">
@@ -99,7 +107,11 @@ function show_sidebar_meta_box() {
                 <!-- Newsletter Sign Up Checkbox -->
                 <label>
                 <?php
-                $checkbox_value = $meta['newsletter-widget'];
+                if(isset($meta['newsletter-widget'])) {
+                    $checkbox_value = $meta['newsletter-widget'];
+                } else {
+                    $checkbox_value = "";
+                }
 
                 if($checkbox_value == "") { ?>
                         <input name="sidebar[newsletter-widget]" type="checkbox" value="true">
@@ -111,7 +123,11 @@ function show_sidebar_meta_box() {
                 <!-- Socialize Checkbox -->
                 <label>
                 <?php
-                $checkbox_value = $meta['socialize-widget'];
+                if(isset($meta['socialize-widget'])) {
+                    $checkbox_value = $meta['socialize-widget'];
+                } else {
+                    $checkbox_value = "";
+                }
 
                 if($checkbox_value == "") { ?>
                         <input name="sidebar[socialize-widget]" type="checkbox" value="true">
@@ -123,7 +139,11 @@ function show_sidebar_meta_box() {
                 <!-- Events Checkbox -->
                 <label>
                 <?php
-                $checkbox_value = $meta['events-widget'];
+                if(isset($meta['events-widget'])) {
+                    $checkbox_value = $meta['events-widget'];
+                } else {
+                    $checkbox_value = "";
+                }
 
                 if($checkbox_value == "") { ?>
                         <input name="sidebar[events-widget]" type="checkbox" value="true">
@@ -137,7 +157,11 @@ function show_sidebar_meta_box() {
                 <!-- About the Lotus Guide Checkbox -->
                 <label>
                 <?php
-                $checkbox_value = $meta['about-widget'];
+                if(isset($meta['about-widget'])) {
+                    $checkbox_value = $meta['about-widget'];
+                } else {
+                    $checkbox_value = "";
+                }
 
                 if($checkbox_value == "") { ?>
                         <input name="sidebar[about-widget]" type="checkbox" value="true">
@@ -149,7 +173,11 @@ function show_sidebar_meta_box() {
                 <!-- Advertise With Us Checkbox -->
                 <label>
                 <?php
-                $checkbox_value = $meta['advertise-widget'];
+                if(isset($meta['advertise-widget'])) {
+                    $checkbox_value = $meta['advertise-widget'];
+                } else {
+                    $checkbox_value = "";
+                }
 
                 if($checkbox_value == "") { ?>
                         <input name="sidebar[advertise-widget]" type="checkbox" value="true">
@@ -161,7 +189,11 @@ function show_sidebar_meta_box() {
                 <!-- Testimonials Checkbox -->
                 <label>
                 <?php
-                $checkbox_value = $meta['testimonials-widget'];
+                if(isset($meta['testimonials-widget'])) {
+                    $checkbox_value = $meta['testimonials-widget'];
+                } else {
+                    $checkbox_value = "";
+                }
 
                 if($checkbox_value == "") { ?>
                         <input name="sidebar[testimonials-widget]" type="checkbox" value="true">
