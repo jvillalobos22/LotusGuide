@@ -22,8 +22,8 @@ page.php
 						$bannerImg = $secPageMeta['banner-image'];
 						$bannerAlt = $secPageMeta['banner-image-alt'];
 
-						$pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
-						echo '<code>$pageTemplate = '.$pageTemplate.'</code>';
+						// $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
+						// echo '<code>$pageTemplate = '.$pageTemplate.'</code>';
 					?>
 
 					<div class="dk_maincontent" <?php post_class(''); ?>>
